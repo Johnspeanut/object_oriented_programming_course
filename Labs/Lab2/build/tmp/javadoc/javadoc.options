@@ -1,0 +1,12 @@
+-classpath 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\build\\classes\\java\\main;G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\build\\resources\\main'
+-d 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\build\\docs\\javadoc'
+-doctitle 'Lab2 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'Lab2 1.0-SNAPSHOT API'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\equality_in_java\\Posn.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\problem1\\Author.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\problem2\\Athlete.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\problem2\\BaseballPlayer.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\problem2\\Name.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab2\\src\\main\\java\\problem2\\Runner.java'

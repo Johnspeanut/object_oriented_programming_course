@@ -1,0 +1,12 @@
+-classpath 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\build\\classes\\java\\main;G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\build\\resources\\main'
+-d 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\build\\docs\\javadoc'
+-doctitle 'Assignment_1 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'Assignment_1 1.0-SNAPSHOT API'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem1\\Owner.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem1\\Vehicle.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem2\\Time.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem2\\Trip.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem3\\Account.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_1\\src\\main\\java\\problem3\\Amount.java'

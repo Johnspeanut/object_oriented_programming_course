@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PerishableFood.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">PerishableFood.java</span></div><h1>PerishableFood.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+/**
+ * A class representing a perishable item.
+ * @author  John Peng
+ * @version v1.0
+ */
+public abstract class PerishableFood extends FoodItem{
+  private static final int MAX_ALLOWED_QUANTITY = 100;
+  private int orderDate;
+  private int expirationData;
+
+  /**
+   * Construcotr for a perishable item.
+   * @param name Name of the perishable food.
+   * @param currentPricePerUnit Current price of the perishable food per unit.
+   * @param currentAvailableQuantity Current available quantity of the food.
+   * @param orderDate Order date of the food.
+   * @param expirationData Expiration of the food.
+   */
+  public PerishableFood(String name, double currentPricePerUnit, int currentAvailableQuantity,
+      int orderDate, int expirationData) {
+<span class="fc" id="L25">    super(name, currentPricePerUnit, currentAvailableQuantity);</span>
+<span class="fc" id="L26">    this.orderDate = orderDate;</span>
+<span class="fc" id="L27">    this.expirationData = expirationData;</span>
+<span class="fc" id="L28">  }</span>
+
+  /**
+   * Get maximum of allowed quantity of food item.
+   * @return Maximum of allowed quantity of food item.
+   */
+  public int getMaxAllowedQuantity() {
+<span class="fc" id="L35">    return MAX_ALLOWED_QUANTITY;</span>
+  }
+
+  /**
+   * Gets order date.
+   * @return order date.
+   */
+  public int getOrderDate() {
+<span class="fc" id="L43">    return orderDate;</span>
+  }
+
+  /**
+   * Get expiration date.
+   * @return expiration date.
+   */
+  public int getExpirationData() {
+<span class="fc" id="L51">    return expirationData;</span>
+  }
+
+  /**
+   * Make order of a particular food item.
+   * @param numItem Number of food item.
+   * @return True if making an order.
+   */
+  @Override
+  public boolean makeOrder(int numItem) {
+<span class="pc bpc" id="L61" title="1 of 4 branches missed.">    if(numItem &lt;= MAX_ALLOWED_QUANTITY &amp;&amp; numItem &lt;= currentAvailableQuantity){</span>
+<span class="fc" id="L62">      currentAvailableQuantity -= numItem;</span>
+<span class="fc" id="L63">      incomeKindsFood = numItem * getCurrentPricePerUnit();</span>
+<span class="fc" id="L64">      companyIncome += incomeKindsFood;</span>
+<span class="fc" id="L65">      return true;</span>
+    }
+<span class="fc" id="L67">    return false;</span>
+  }
+
+  /**
+   * Overrides the equals method.
+   * @param o Object to be checked.
+   * @return True if attributes are equals for food items.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L78">      return true;</span>
+    }
+<span class="pc bpc" id="L80" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L81">      return false;</span>
+    }
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">    if (!super.equals(o)) {</span>
+<span class="nc" id="L84">      return false;</span>
+    }
+<span class="fc" id="L86">    PerishableFood that = (PerishableFood) o;</span>
+<span class="pc bpc" id="L87" title="2 of 4 branches missed.">    return orderDate == that.orderDate &amp;&amp; expirationData == that.expirationData;</span>
+  }
+
+  /**
+   * Override hashcode.
+   * @return Hashcode value.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L96">    return Objects.hash(super.hashCode(), orderDate, expirationData);</span>
+  }
+
+  /**
+   * Override string method.
+   * @return String describing food item.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L105">    return &quot;PerishableFood{&quot; + &quot;name&quot; + getName() +</span>
+        &quot;currentPricePerUnit=&quot; + currentPricePerUnit +
+        &quot;, currentAvailableQuantity=&quot; + currentAvailableQuantity +
+        &quot;, orderDate=&quot; + orderDate +
+        &quot;, expirationData=&quot; + expirationData +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

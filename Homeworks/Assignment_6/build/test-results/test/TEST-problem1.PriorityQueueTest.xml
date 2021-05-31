@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.PriorityQueueTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-02-27T08:12:39" hostname="LAPTOP-UVF4RGU1" time="0.011">
+  <properties/>
+  <testcase name="peakerror" classname="problem1.PriorityQueueTest" time="0.0"/>
+  <testcase name="testToString" classname="problem1.PriorityQueueTest" time="0.001"/>
+  <testcase name="add" classname="problem1.PriorityQueueTest" time="0.0"/>
+  <testcase name="pop" classname="problem1.PriorityQueueTest" time="0.007"/>
+  <testcase name="peak" classname="problem1.PriorityQueueTest" time="0.001"/>
+  <testcase name="testHashCode" classname="problem1.PriorityQueueTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem1.PriorityQueueTest" time="0.001"/>
+  <testcase name="isEmpty" classname="problem1.PriorityQueueTest" time="0.0"/>
+  <system-out><![CDATA[10 ten
+
+8 eight
+
+4 four
+
+10 ten
+
+10 u
+
+8 a
+
+8 eight
+
+4 four
+
+PriorityQueue:{priority=10; value=ten}{priority=0; value=null}
+PriorityQueue:{priority=10; value=ten}{priority=0; value=null}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

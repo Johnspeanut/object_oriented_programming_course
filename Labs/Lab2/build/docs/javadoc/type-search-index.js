@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"problem2","l":"Athlete"},{"p":"problem1","l":"Author"},{"p":"problem2","l":"BaseballPlayer"},{"p":"problem2","l":"Name"},{"p":"equality_in_java","l":"Posn"},{"p":"problem2","l":"Runner"}]

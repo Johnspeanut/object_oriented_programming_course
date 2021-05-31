@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Node.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab4</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">Node.java</span></div><h1>Node.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.Objects;
+
+/**
+ * Represents a singly-linked node for a Linked List.
+ */
+public class Node {
+  private String item;
+  private Node nextNode;
+
+  /**
+   * Construcotr for a Node.
+   * @param item The item to store.
+   * @param nextNode A reference to the next Node, if any.
+   */
+<span class="fc" id="L17">  public Node(String item, Node nextNode){</span>
+<span class="fc" id="L18">    this.item = item;</span>
+<span class="fc" id="L19">    this.nextNode = nextNode;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Gets the item in the Node.
+   * @return The item.
+   */
+  public String getItem() {
+<span class="fc" id="L27">    return item;</span>
+  }
+
+  /**
+   * Gets the next Node.
+   * @return The next Node, if present. Returns null if this is the end of the list.
+   */
+  public Node getNextNode() {
+<span class="fc" id="L35">    return nextNode;</span>
+  }
+
+  /**
+   * Sets the next Node.
+   * @param nextNode The next Node in the list. This will be null if the current Node is to be the end of the list.
+   */
+  public void setNextNode(Node nextNode) {
+<span class="fc" id="L43">    this.nextNode = nextNode;</span>
+<span class="fc" id="L44">  }</span>
+
+  /**
+   * Override the equals method.
+   * @param o An object to be compared.
+   * @return True if two objects are equals in values.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L53" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L54">      return true;</span>
+    }
+<span class="fc bfc" id="L56" title="All 2 branches covered.">    if (!(o instanceof Node)) {</span>
+<span class="fc" id="L57">      return false;</span>
+    }
+<span class="fc" id="L59">    Node node = (Node) o;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">    return Objects.equals(item, node.item) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        .equals(nextNode, node.nextNode);</span>
+  }
+
+  /**
+   * Compares hashcode of two nodes.
+   * @return True if two nodes are equals in values.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L70">    return Objects.hash(item, nextNode);</span>
+  }
+
+  /**
+   * Converts the fields to string.
+   * @return the string.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L79">    return &quot;Node{&quot; +</span>
+        &quot;item='&quot; + item + '\'' +
+        &quot;, nextNode=&quot; + nextNode +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

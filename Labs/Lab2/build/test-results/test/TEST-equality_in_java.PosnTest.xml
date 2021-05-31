@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="equality_in_java.PosnTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-01-28T06:40:17" hostname="LAPTOP-UVF4RGU1" time="0.011">
+  <properties/>
+  <testcase name="testToString" classname="equality_in_java.PosnTest" time="0.01"/>
+  <testcase name="getX" classname="equality_in_java.PosnTest" time="0.0"/>
+  <testcase name="getY" classname="equality_in_java.PosnTest" time="0.0"/>
+  <testcase name="testEqualsSameObject" classname="equality_in_java.PosnTest" time="0.0"/>
+  <testcase name="testHashCode" classname="equality_in_java.PosnTest" time="0.0"/>
+  <testcase name="testEqualsSameValue" classname="equality_in_java.PosnTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

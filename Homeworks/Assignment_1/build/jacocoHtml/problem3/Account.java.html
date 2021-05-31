@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_1</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package problem3;
+
+/**
+ * Account is a simple object that has amount, firstName, and lastName.
+ * */
+public class Account {
+    private Amount amount;
+    private String firstName;
+    private String lastName;
+
+    /**
+     * Constructor that creates a new Account object with the specified amount, firstName, and lastName.
+     * @param amount - amount of the new Amount object.
+     * @param firstName - first name of the new Amount object.
+     * @param lastName - last name of the new Amount object.
+     * */
+<span class="fc" id="L17">    public Account(Amount amount, String firstName, String lastName) {</span>
+<span class="fc" id="L18">        this.amount = amount;</span>
+<span class="fc" id="L19">        this.firstName = firstName;</span>
+<span class="fc" id="L20">        this.lastName = lastName;</span>
+<span class="fc" id="L21">    }</span>
+
+    /**
+     * Returns the balance amount of the Account
+     * @return the balance amount of the Account
+     * */
+    public Amount getBalance() {
+<span class="fc" id="L28">        return amount;</span>
+    }
+
+    /**
+     * Returns the first name of the Account
+     * @return the first name of the Account
+     * */
+    public String getFirstName() {
+<span class="fc" id="L36">        return firstName;</span>
+    }
+
+    /**
+     * Returns the last name of the Account
+     * @return the last name of the Account
+     * */
+    public String getLastName() {
+<span class="fc" id="L44">        return lastName;</span>
+    }
+
+    /**
+     * Deposite amount of money into account.
+     * @param amount - amount of the deposit.
+     * @return the new Account object with the updated balance.
+     * */
+    public Account deposit(Amount amount){
+<span class="fc" id="L53">        Amount amountUpdated = amount.add(this.amount, amount);</span>
+<span class="fc" id="L54">        return new Account(amountUpdated, this.firstName, this.lastName);</span>
+    }
+
+    /**
+     * Withdrawal amount of money from account.
+     * @param amount - amount of the withdrawal.
+     * @return the new Account object with the updated balance.
+     * */
+    public Account withdrawal(Amount amount){
+<span class="fc" id="L63">        Amount amountUpdated = amount.minus(this.amount,amount);</span>
+<span class="fc" id="L64">        return new Account(amountUpdated, this.firstName, this.lastName);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

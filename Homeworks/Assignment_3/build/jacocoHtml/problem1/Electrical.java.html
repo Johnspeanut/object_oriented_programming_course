@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Electrical.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Electrical.java</span></div><h1>Electrical.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+public class Electrical extends SpecialistService{
+  private static final int MAX_LICENSED  = 4;
+  private static final int EXTRA_PERMITTING_FEE = 50;
+  private double price;
+
+
+  public Electrical(String address, enumOfSize size, boolean serviceMonthly,
+      int numPreviousServices, int numLicensedRequired, boolean isComplex) {
+<span class="fc" id="L13">    super(address, size, serviceMonthly, numPreviousServices, numLicensedRequired, isComplex);</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">  if(numLicensedRequired &gt; MAX_LICENSED){</span>
+<span class="fc" id="L15">    throw new IllegalArgumentException(&quot;The licensed employee you entered is invalid.&quot;);</span>
+  }
+<span class="fc" id="L17">  }</span>
+
+  public int getMaxLicensed() {
+<span class="fc" id="L20">    return MAX_LICENSED;</span>
+  }
+
+  public int getExtraPermittingFee() {
+<span class="fc" id="L24">    return EXTRA_PERMITTING_FEE;</span>
+  }
+
+  public double getPrice() {
+<span class="fc" id="L28">    calculatePrice();</span>
+<span class="fc" id="L29">    return price;</span>
+  }
+
+  @Override
+  public void calculatePrice() {
+<span class="fc" id="L34">    getNumLicensedEmployeeRequired();</span>
+<span class="fc" id="L35">    this.price = (getNumLicensedEmployeeRequired() * getBASERATE()) + EXTRA_PERMITTING_FEE ;</span>
+
+<span class="fc" id="L37">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L42">      return true;</span>
+    }
+<span class="pc bpc" id="L44" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L45">      return false;</span>
+    }
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L48">      return false;</span>
+    }
+<span class="fc" id="L50">    Electrical that = (Electrical) o;</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">    return Double.compare(that.price, price) == 0;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L56">    return Objects.hash(super.hashCode(), price);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L61">    return &quot;Electrical{&quot; +</span>
+<span class="fc" id="L62">        &quot;price=&quot; + price + super.toString() +</span>
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

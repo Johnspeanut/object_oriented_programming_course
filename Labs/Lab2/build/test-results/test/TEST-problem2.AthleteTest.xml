@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.AthleteTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-01-28T06:40:17" hostname="LAPTOP-UVF4RGU1" time="0.006">
+  <properties/>
+  <testcase name="testEqualsNullReference" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="testEqualsTransitivity" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="testHashCodeConsistency" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="getHeight" classname="problem2.AthleteTest" time="0.001"/>
+  <testcase name="testEqualsSymmetry" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="getLeague" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem2.AthleteTest" time="0.001"/>
+  <testcase name="getAthletesName" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="getWeight" classname="problem2.AthleteTest" time="0.0"/>
+  <testcase name="testEqualsReflexivity" classname="problem2.AthleteTest" time="0.002"/>
+  <testcase name="testHashCodeConsistency2" classname="problem2.AthleteTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

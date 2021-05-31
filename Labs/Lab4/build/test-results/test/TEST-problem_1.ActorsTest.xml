@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_1.ActorsTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-02-11T06:59:14" hostname="LAPTOP-UVF4RGU1" time="0.004">
+  <properties/>
+  <testcase name="getAge" classname="problem_1.ActorsTest" time="0.001"/>
+  <testcase name="testToString" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="receiveAward" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="addMovies" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getName" classname="problem_1.ActorsTest" time="0.001"/>
+  <testcase name="addSeries" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getAwards" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getGenres" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getMovies" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="addOtherMultimedia" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getSeries" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="getOtherMultimedia" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem_1.ActorsTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem_1.ActorsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

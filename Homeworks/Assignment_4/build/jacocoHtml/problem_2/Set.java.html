@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Set.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_4</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">Set.java</span></div><h1>Set.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.Arrays;
+import java.util.Objects;
+
+/**
+ * A class representing Set implements ADT methods.
+ */
+public class Set implements ISet{
+  Integer[] set;
+  int numItems;
+
+  /**
+   * constructor for the Set class. Default slots are 10.
+   */
+<span class="fc" id="L16">  public Set() {</span>
+<span class="fc" id="L17">    set = new Integer[10]; // with default slots of ten.</span>
+<span class="fc" id="L18">    numItems = 0;</span>
+<span class="fc" id="L19">  }</span>
+
+  /**
+   * Creates and returns an empty Set.
+   */
+  @Override
+  public Set emptySet() {
+<span class="fc" id="L26">    return new Set();</span>
+  }
+
+  /**
+   * Checks if the Set is empty.
+   * @return true if the Set contains no items, false otherwise.
+   */
+  @Override
+  public Boolean isEmpty() {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">    return numItems == 0;</span>
+  }
+
+  /**
+   * Adds the given Integer to the Set if and only if that Integer is not already in the Set.
+   * @param n An Integer object.
+   * @return A Set having Integer n object.
+   */
+  @Override
+  public Set add(Integer n) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if(this.contains(n)){</span>
+<span class="fc" id="L46">      return this;</span>
+    }else{
+<span class="fc bfc" id="L48" title="All 2 branches covered.">      if(this.numItems == this.set.length - 1 ){</span>
+<span class="fc" id="L49">        this.resize();</span>
+      }
+<span class="fc" id="L51">this.set[this.numItems] = n;</span>
+<span class="fc" id="L52">      this.numItems ++;</span>
+<span class="fc" id="L53">      return this;</span>
+    }
+  }
+
+  /**
+   * Helper method to resize the set. The new length of the set is 2 times than pre-resize one.
+   */
+  private void resize(){
+<span class="fc" id="L61">    Integer[] newSet = new Integer[this.set.length * 2];</span>
+<span class="fc" id="L62">    int i = 0;</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">    for(Integer element:this.set){</span>
+<span class="fc" id="L64">      newSet[i] = element;</span>
+<span class="fc" id="L65">      i++;</span>
+    }
+<span class="fc" id="L67">    this.set = newSet;</span>
+<span class="fc" id="L68">  }</span>
+
+  /**
+   * Check if the Set contains n object.
+   * @param n The Integer object.
+   * @return true if the given Integer is in the Set, false otherwise.
+   */
+  @Override
+  public Boolean contains(Integer n) {
+<span class="fc bfc" id="L77" title="All 2 branches covered.">    for(int i = 0; i &lt; this.numItems; i++){</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">      if(n.equals(this.set[i])){</span>
+<span class="fc" id="L79">        return Boolean.TRUE;</span>
+      }
+    }
+<span class="fc" id="L82">    return Boolean.FALSE;</span>
+  }
+
+  /**
+   * Remove the Integer object.
+   * @param n The Integer object.
+   * @return a copy of the Set with the given Integer removed.If the given Integer is not in the
+   * Set, returns the Set as it.
+   */
+  @Override
+  public Set remove(Integer n) {
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">    if(this.contains(n)){</span>
+<span class="fc" id="L94">      Set newSet = new Set();</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">      for(int i = 0; i &lt; this.numItems; i++){</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        if(!this.set[i].equals(n)){</span>
+<span class="fc" id="L97">          newSet.add(this.set[i]);</span>
+        }
+      }
+<span class="fc" id="L100">      return newSet;</span>
+    }else{
+<span class="nc" id="L102">      return this;</span>
+    }
+  }
+
+  /**
+   * Gets the number of items in the Set.
+   * @return the number of items in the Set.
+   */
+  @Override
+  public Integer size() {
+<span class="fc" id="L112">    return this.numItems;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L118">      return true;</span>
+    }
+<span class="fc bfc" id="L120" title="All 2 branches covered.">    if (!(o instanceof Set)) {</span>
+<span class="fc" id="L121">      return false;</span>
+    }
+<span class="fc" id="L123">    Set set1 = (Set) o;</span>
+<span class="pc bpc" id="L124" title="1 of 4 branches missed.">    return numItems == set1.numItems &amp;&amp; Arrays.equals(set, set1.set);</span>
+  }
+
+  /**
+   * Override the hashcode method.
+   * @return true if two nodes have the same hashcode.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L133">    int result = Objects.hash(numItems);</span>
+<span class="fc" id="L134">    result = 31 * result + Arrays.hashCode(set);</span>
+<span class="fc" id="L135">    return result;</span>
+  }
+
+  /**
+   * Override the toString method.
+   * @return true if two nodes have the same strings.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L144">    return &quot;Set{&quot; +</span>
+<span class="fc" id="L145">        &quot;set=&quot; + Arrays.toString(set) +</span>
+        &quot;, numItems=&quot; + numItems +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

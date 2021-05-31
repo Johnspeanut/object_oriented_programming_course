@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TripRecommender.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">finalExam</a> &gt; <a href="index.source.html" class="el_package">problem3</a> &gt; <span class="el_source">TripRecommender.java</span></div><h1>TripRecommender.java</h1><pre class="source lang-java linenums">package problem3;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+/**
+ *  A class recommending trip destination.
+ */
+public class TripRecommender {
+
+  /**
+   *  a private map destinationStatistics containing information of destinations.
+   */
+  private Map&lt;Destination, ArrayList&lt;Integer&gt;&gt; destinationStatistics;
+
+  /**
+   * constructor
+   */
+<span class="nc" id="L23">  public TripRecommender(){</span>
+<span class="nc" id="L24">  }</span>
+
+  /**
+   * Create a map of destinations with corresponding statistics based on a list of travelers.
+   * @param travelers  a list of travelers
+   * @return a map of destinations with corresponding statistics
+   */
+  public Map&lt;Destination, ArrayList&lt;Integer&gt;&gt;  getAggregatedStatistics(List&lt;Traveler&gt; travelers){
+<span class="nc" id="L32">    Map&lt;Destination, Integer&gt; visitedDestinationStatistics = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L33">    Map&lt;Destination, Integer&gt; considerDestinationStatistics = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">    for(Traveler traveler:travelers){</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">      for(Destination destination:traveler.getTraveledDestinations()){</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if(visitedDestinationStatistics.containsKey(destination)){</span>
+<span class="nc" id="L37">          visitedDestinationStatistics.put(destination, visitedDestinationStatistics.get(destination) + 1);</span>
+        }else{
+<span class="nc" id="L39">          visitedDestinationStatistics.put(destination,1);</span>
+        }
+<span class="nc" id="L41">      }</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">      for(Destination destination:traveler.getConsideredDestinations()){</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if(considerDestinationStatistics.containsKey(destination)){</span>
+<span class="nc" id="L44">          considerDestinationStatistics.put(destination, considerDestinationStatistics.get(destination) + 1);</span>
+        }else{
+<span class="nc" id="L46">          considerDestinationStatistics.put(destination,1);</span>
+        }
+<span class="nc" id="L48">      }</span>
+<span class="nc" id="L49">    }</span>
+
+    // Merge two sub-maps
+<span class="nc" id="L52">    Map&lt;Destination, Integer&gt; mergedMap = new HashMap&lt;&gt;(visitedDestinationStatistics);</span>
+<span class="nc" id="L53">    mergedMap.putAll(considerDestinationStatistics);</span>
+
+    // Create a result map
+    // Using a arraylist to contain counting number of visited and counting number of desired.
+<span class="nc" id="L57">    Map&lt;Destination, ArrayList&lt;Integer&gt;&gt; resultMap = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    for(Destination destination: mergedMap.keySet()){</span>
+<span class="nc" id="L59">      Integer visitedCount = 0;</span>
+<span class="nc" id="L60">      Integer considerCount = 0;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">      if(visitedDestinationStatistics.containsKey(destination)){</span>
+<span class="nc" id="L62">        visitedCount = visitedDestinationStatistics.get(destination);</span>
+      }
+<span class="nc bnc" id="L64" title="All 2 branches missed.">      if(considerDestinationStatistics.containsKey(destination)){</span>
+<span class="nc" id="L65">        considerCount = considerDestinationStatistics.get(destination);</span>
+      }
+<span class="nc" id="L67">      ArrayList&lt;Integer&gt; counts = new ArrayList&lt;&gt;(Arrays.asList(visitedCount, considerCount));</span>
+<span class="nc" id="L68">      resultMap.put(destination,counts);</span>
+<span class="nc" id="L69">    }</span>
+<span class="nc" id="L70">    this.destinationStatistics = resultMap;</span>
+<span class="nc" id="L71">    return resultMap;</span>
+  }
+
+  /**
+   * Gets the most visited destination
+   * @return the most visited destination
+   */
+  public Destination recommendMostVisitedDestination(){
+<span class="nc" id="L79">    return this.destinationStatistics.entrySet().stream().max((entry1, entry2) -&gt; entry1.getValue().get(0) &gt; entry2.getValue()</span>
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        .get(0)? 1: -1).get().getKey();</span>
+  }
+
+  /**
+   * Gets the most desired desired destination
+   * @return the most desired desired destination
+   */
+  public Destination recommendMostDesiredDestination(){
+<span class="nc" id="L88">    return this.destinationStatistics.entrySet().stream().max((entry1, entry2) -&gt; entry1.getValue().get(1) &gt; entry2.getValue()</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        .get(1)? 1: -1).get().getKey();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

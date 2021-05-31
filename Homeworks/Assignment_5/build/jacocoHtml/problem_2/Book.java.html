@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Book.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">Book.java</span></div><h1>Book.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.Locale;
+import java.util.Objects;
+
+/**
+ * A class representing book.
+ */
+public class Book implements ILibrary{
+  private Author author;
+  private String title;
+  private int year;
+
+  /**
+   * Constructor for the book.
+   * @param author Author of the book.
+   * @param title Title of the book.
+   * @param year The published year.
+   */
+<span class="fc" id="L20">  public Book(Author author, String title, int year) {</span>
+<span class="fc" id="L21">    this.author = author;</span>
+<span class="fc" id="L22">    this.title = title;</span>
+<span class="fc" id="L23">    this.year = year;</span>
+<span class="fc" id="L24">  }</span>
+
+  /**
+   * Gets the author of the book.
+   * @return the author of the book
+   */
+  public Author getAuthor() {
+<span class="fc" id="L31">    return author;</span>
+  }
+
+  /**
+   * Gets released year.
+   * @return released year.
+   */
+  public int getYear() {
+<span class="fc" id="L39">    return year;</span>
+  }
+
+  /**
+   * Check if a book title has a keyword.
+   * @param keyword A keyword to be checked.
+   * @return true if it has.
+   */
+  @Override
+  public boolean search(String keyword) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    if(title.toLowerCase().indexOf(keyword.toLowerCase()) != -1){</span>
+<span class="fc" id="L50">      return true;</span>
+    }
+<span class="fc" id="L52">    return false;</span>
+  }
+
+  /**
+   * Check if book has the author.
+   * @param author The book to be checked.
+   * @return true if it has. Otherwise, false.
+   */
+  @Override
+  public boolean search(Author author) {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">    if(this.author.equals(author)){</span>
+<span class="fc" id="L63">      return true;</span>
+    }
+<span class="fc" id="L65">    return false;</span>
+  }
+
+  /**
+   * Check if book has the artist.
+   * @param artist The artist to be checked.
+   * @return false always cause book never has artist.
+   */
+  @Override
+  public boolean search(RecordingArtist artist) {
+<span class="fc" id="L75">    return false;</span>
+  }
+
+
+  /**
+   * Gets the title name of the music.
+   * This method need to be used in Catalog. So it is override ILibrary interface method.
+   * @return title of the music.
+   */
+  @Override
+  public String getTitle() {
+<span class="fc" id="L86">    return title;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L96" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L97">      return true;</span>
+    }
+<span class="fc bfc" id="L99" title="All 2 branches covered.">    if (!(o instanceof Book)) {</span>
+<span class="fc" id="L100">      return false;</span>
+    }
+<span class="fc" id="L102">    Book book = (Book) o;</span>
+<span class="pc bpc" id="L103" title="1 of 4 branches missed.">    return year == book.year &amp;&amp; Objects.equals(author, book.author) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">        .equals(title, book.title);</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L113">    return Objects.hash(author, title, year);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L122">    return &quot;Book{&quot; +</span>
+        &quot;author=&quot; + author +
+        &quot;, title='&quot; + title + '\'' +
+        &quot;, year=&quot; + year +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

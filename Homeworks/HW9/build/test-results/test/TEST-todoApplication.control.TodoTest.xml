@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="todoApplication.control.TodoTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:08" hostname="LAPTOP-UVF4RGU1" time="0.019">
+  <properties/>
+  <testcase name="getDue" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="testToString" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="toFormattedString" classname="todoApplication.control.TodoTest" time="0.002"/>
+  <testcase name="isCompleted" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="getText" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="withLowerPriority" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="getId" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="setId" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="setCompleted" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="testHashCode" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="getPriority" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="withHigherPriority" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <testcase name="testSetCompleted" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="testEquals" classname="todoApplication.control.TodoTest" time="0.0"/>
+  <testcase name="getCategory" classname="todoApplication.control.TodoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Todo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.control</a> &gt; <span class="el_source">Todo.java</span></div><h1>Todo.java</h1><pre class="source lang-java linenums">package todoApplication.control;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * Concrete class representing a to-do.
+ */
+public class Todo implements Comparable&lt;Todo&gt; {
+
+  private int id;
+  private String text;
+  private boolean isCompleted;
+  private LocalDate due;
+  private int priority;
+  private String category;
+
+  /**
+   * Constructs a new to-do, based upon the provided input parameter.
+   *
+   * @param builder - a TodoBuilder object.
+   */
+<span class="fc" id="L25">  private Todo(TodoBuilder builder) {</span>
+<span class="fc" id="L26">    this.id = builder.id;</span>
+<span class="fc" id="L27">    this.text = builder.text;</span>
+<span class="fc" id="L28">    this.isCompleted = builder.isCompleted;</span>
+<span class="fc" id="L29">    this.due = builder.due;</span>
+<span class="fc" id="L30">    this.priority = builder.priority;</span>
+<span class="fc" id="L31">    this.category = builder.category;</span>
+<span class="fc" id="L32">  }</span>
+
+  /**
+   * Constructor
+   */
+<span class="nc" id="L37">  public Todo(){</span>
+    // do nothing.
+<span class="nc" id="L39">  }</span>
+
+  /**
+   * Overloading constructor
+   * @param id id of the Todo
+   * @param text Text message of this toto
+   * @param isCompleted the status of the todo
+   * @param due due date of the todo
+   * @param priority priority value of the todo
+   * @param category category of the todo
+   */
+<span class="nc" id="L50">  public Todo(int id, String text, boolean isCompleted, LocalDate due, int priority, String category) {</span>
+<span class="nc" id="L51">    this.id = id;</span>
+<span class="nc" id="L52">    this.text = text;</span>
+<span class="nc" id="L53">    this.isCompleted = isCompleted;</span>
+<span class="nc" id="L54">    this.due = due;</span>
+<span class="nc" id="L55">    this.priority = priority;</span>
+<span class="nc" id="L56">    this.category = category;</span>
+<span class="nc" id="L57">  }</span>
+
+  /**
+   * convert a todo object to list of todos (string)
+   * @return list
+   */
+  public ArrayList&lt;String&gt; convertTodoToString(){
+<span class="nc" id="L64">    ArrayList&lt;String&gt; tmpList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L65">    tmpList.add(String.valueOf(this.id));</span>
+<span class="nc" id="L66">    tmpList.add(&quot;\&quot;&quot;+this.text+&quot;\&quot;&quot;);</span>
+<span class="nc" id="L67">    tmpList.add(String.valueOf(this.isCompleted));</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">    if(this.due.equals(LocalDate.of(1000,1,1))) {tmpList.add(&quot;?&quot;);}</span>
+    else {
+<span class="nc" id="L70">      String year = String.valueOf(this.due.getYear());</span>
+<span class="nc" id="L71">      String month = String.valueOf(this.due.getMonthValue());</span>
+<span class="nc" id="L72">      String date = String.valueOf(this.due.getDayOfMonth());</span>
+<span class="nc" id="L73">      tmpList.add(month+&quot;/&quot;+date+&quot;/&quot;+year);</span>
+    }
+<span class="nc" id="L75">    tmpList.add(String.valueOf(this.priority));</span>
+<span class="nc" id="L76">    tmpList.add(this.category);</span>
+
+<span class="nc" id="L78">    return tmpList;</span>
+  }
+
+  public void setId(int id) {
+<span class="fc" id="L82">    this.id = id;</span>
+<span class="fc" id="L83">  }</span>
+
+
+  /**
+   * setter for complete
+   * @param completed true or false
+   */
+  public void setCompleted(boolean completed) {
+<span class="fc" id="L91">    isCompleted = completed;</span>
+<span class="fc" id="L92">  }</span>
+
+  /**
+   * Gets the to-do's ID as an integer.
+   *
+   * @return the to-do's ID as an integer.
+   */
+  public int getId() {
+<span class="fc" id="L100">    return this.id;</span>
+  }
+
+  /**
+   * Gets the to-do's text description as a String.
+   *
+   * @return the to-do's text description as a String.
+   */
+  public String getText() {
+<span class="fc" id="L109">    return this.text;</span>
+  }
+
+  /**
+   * Gets the to-do's completed status as a boolean.
+   *
+   * @return the to-do's completed status as a boolean.
+   */
+  public boolean isCompleted() {
+<span class="fc" id="L118">    return this.isCompleted;</span>
+  }
+
+  /**
+   * Gets the to-do's due date as a LocalDate.
+   *
+   * @return the to-do's due date as a LocalDate.
+   */
+  public LocalDate getDue() {
+<span class="fc" id="L127">    return this.due;</span>
+  }
+
+  /**
+   * Gets the to-do's priority as an integer.
+   *
+   * @return the to-do's priority as an integer.
+   */
+  public int getPriority() {
+<span class="fc" id="L136">    return this.priority;</span>
+  }
+
+  /**
+   * Gets the to-do's group category as a String.
+   *
+   * @return the to-do's group category as a String.
+   */
+  public String getCategory() {
+<span class="fc" id="L145">    return this.category;</span>
+  }
+
+  /**
+   * Sets the to-do's completed status as true.
+   */
+  public void setCompleted() {
+<span class="fc" id="L152">    this.isCompleted = true;</span>
+<span class="fc" id="L153">  }</span>
+
+  /**
+   * Gets the string representing the to-do in a writer-friendly format.
+   *
+   * @return the string representing the to-do in a writer-friendly format.
+   */
+  public String toFormattedString() {
+<span class="fc" id="L161">    return &quot;\&quot;&quot; + this.getId() + &quot;\&quot;,\&quot;&quot; + this.getText() + &quot;\&quot;,\&quot;&quot; + this.isCompleted() + &quot;\&quot;,\&quot;&quot;</span>
+<span class="fc" id="L162">        + this.getDue() + &quot;\&quot;,\&quot;&quot; + this.getPriority() + &quot;\&quot;,\&quot;&quot; + this.getCategory() + &quot;\&quot;&quot;;</span>
+  }
+
+  /**
+   * Overrides the equals() to check if some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - object to compare as an Object.
+   * @return true if the two objects are equal and false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L173" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L174">      return true;</span>
+    }
+<span class="fc bfc" id="L176" title="All 4 branches covered.">    if (o == null || this.getClass() != o.getClass()) {</span>
+<span class="fc" id="L177">      return false;</span>
+    }
+<span class="fc" id="L179">    Todo that = (Todo) o;</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">    return Objects.equals(this.getText(), that.getText()) &amp;&amp;</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">        this.isCompleted() == that.isCompleted() &amp;&amp;</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        Objects.equals(this.getDue(), that.getDue()) &amp;&amp;</span>
+<span class="fc bfc" id="L183" title="All 2 branches covered.">        this.getPriority() == that.getPriority() &amp;&amp;</span>
+<span class="fc bfc" id="L184" title="All 2 branches covered.">        Objects.equals(this.getCategory(), that.getCategory());</span>
+  }
+
+  /**
+   * Overrides the hashcode() to get the hash code for the to-do as an integer.
+   *
+   * @return the hash code for the to-do as an integer.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L194">    return Objects.hash(this.getId(), this.getText(), this.isCompleted(), this.getDue(),</span>
+<span class="fc" id="L195">        this.getPriority(), this.getCategory());</span>
+  }
+
+  /**
+   * Overrides the toString() to get the string representing the to-do.
+   *
+   * @return the string representing the to-do.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L205">    return &quot;Todo{id=&quot; + this.getId() + &quot;, text=&quot; + this.getText() + &quot;, isCompleted=&quot; +</span>
+<span class="fc" id="L206">        this.isCompleted() + &quot;, due=&quot; + this.getDue() + &quot;, priority=&quot; + this.getPriority() +</span>
+<span class="fc" id="L207">        &quot;, category=&quot; + this.getCategory() + &quot;}&quot;;</span>
+  }
+
+  /**
+   * Compares this object with the specified object for order.  Returns a negative integer, zero, or
+   * a positive integer as this object is less than, equal to, or greater than the specified
+   * object.
+   */
+  @Override
+  public int compareTo(Todo o) {
+<span class="pc bpc" id="L217" title="3 of 6 branches missed.">      if(this.due.isBefore(o.due) || this.due == null || o.due == null)</span>
+<span class="nc" id="L218">        return -1;</span>
+<span class="pc bpc" id="L219" title="1 of 2 branches missed.">      else if(this.due.isAfter(o.due))</span>
+<span class="fc" id="L220">        return 1;</span>
+      else{
+<span class="nc" id="L222">        return 0;</span>
+      }
+    }
+
+
+  /**
+   * Nested static class representing a to-do builder.
+   */
+  public static class TodoBuilder {
+
+    private static final boolean DEFAULT_STATUS = false;
+    private static final int HIGHEST_PRIORITY = 1;
+    private static final int LOWEST_PRIORITY = 3;
+    private static final String PRIORITY_ALERT = &quot;Priority must be between 1 and 3 (inclusive).&quot;;
+    private int id;
+    private String text;
+    private boolean isCompleted;
+    private LocalDate due;
+    private int priority;
+    private String category;
+
+    /**
+     * Constructs a new to-do builder, based upon all of the provided input parameters.
+     *
+     * @param text - to-do's text description as a String.
+     */
+<span class="fc" id="L248">    public TodoBuilder(String text) {</span>
+<span class="fc" id="L249">      this.text = text;</span>
+<span class="fc" id="L250">      this.isCompleted = DEFAULT_STATUS;</span>
+<span class="fc" id="L251">      this.priority = LOWEST_PRIORITY;</span>
+<span class="fc" id="L252">    }</span>
+
+    public TodoBuilder addId(int id){
+<span class="fc" id="L255">      this.id = id;</span>
+<span class="fc" id="L256">      return this;</span>
+    }
+    /**
+     * Helper method to validate a priority between 1 and 3 (inclusive).
+     *
+     * @param priority - priority to validate as an integer.
+     * @return the validated priority.
+     * @throws IllegalArgumentException if any invalid priority was passed.
+     */
+    private int isInRange(int priority) throws IllegalArgumentException {
+<span class="fc bfc" id="L266" title="All 4 branches covered.">      if (priority &lt; HIGHEST_PRIORITY || priority &gt; LOWEST_PRIORITY) {</span>
+<span class="fc" id="L267">        throw new IllegalArgumentException(PRIORITY_ALERT);</span>
+      }
+<span class="fc" id="L269">      return priority;</span>
+    }
+
+    /**
+     * Adds the to-do's completed status.
+     *
+     * @param isCompleted - to-do's completed status as a boolean.
+     * @return the updated to-do builder.
+     */
+    public TodoBuilder addCompleted(boolean isCompleted) {
+<span class="fc" id="L279">      this.isCompleted = isCompleted;</span>
+<span class="fc" id="L280">      return this;</span>
+    }
+
+    /**
+     * Adds the to-do's due date.
+     *
+     * @param due - to-do's due date as a LocalDate.
+     * @return the updated to-do builder.
+     */
+    public TodoBuilder addDue(String due) {
+<span class="fc" id="L290">      DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;M/d/yyyy&quot;);</span>
+<span class="fc" id="L291">      LocalDate dueDate = LocalDate.parse(due,dateTimeFormatter);</span>
+<span class="fc" id="L292">      this.due = dueDate;</span>
+<span class="fc" id="L293">      return this;</span>
+    }
+
+    /**
+     * Adds the to-do's priority.
+     *
+     * @param priority - to-do's priority as an integer.
+     * @return the updated to-do builder.
+     * @throws IllegalArgumentException if any invalid priority was passed.
+     */
+    public TodoBuilder addPriority(String priority) throws IllegalArgumentException {
+<span class="fc" id="L304">      int priorityInt = Integer.parseInt(priority);</span>
+<span class="fc" id="L305">      this.priority = this.isInRange(priorityInt);</span>
+<span class="fc" id="L306">      return this;</span>
+    }
+
+    /**
+     * Adds the to-do's group category.
+     *
+     * @param category - to-do's group category as a String.
+     * @return the updated to-do builder.
+     */
+    public TodoBuilder addCategory(String category) {
+<span class="fc" id="L316">      this.category = category;</span>
+<span class="fc" id="L317">      return this;</span>
+    }
+
+    /**
+     * Builds a to-do.
+     *
+     * @return a new to-do.
+     */
+    public Todo build() {
+<span class="fc" id="L326">      return new Todo(this);</span>
+    }
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

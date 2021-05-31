@@ -1,0 +1,8 @@
+problem_2/SetTest.java
+ problem_2.SetTest
+problem_1/NodeTest.java
+ problem_1.NodeTest
+problem_1/CourseCatalogTest.java
+ problem_1.CourseCatalogTest
+problem_1/CourseTest.java
+ problem_1.CourseTest

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.view</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package todoApplication.view;
+
+import todoApplication.control.Todo;
+import todoApplication.control.Todo.TodoBuilder;
+import todoApplication.control.TodoList;
+import java.util.ArrayList;
+
+<span class="nc" id="L8">public class Main {</span>
+  public static void main(String[] args) throws Exception {
+    // String[] args = &quot;--csv-file todos.csv --add-todo --todo-text needFinishedInTwoDays --completed --due 3/20/2021 --complete-todo 1 --priority 1 --category emergency --show-incomplete --display --sort-by-priority&quot;.split(&quot; &quot;);
+    /**
+     * Create option for every possible command line
+     */
+//    System.out.println(System.getProperty(&quot;user.dir&quot;));
+<span class="nc" id="L15">    Option csvFileOption = new Option(&quot;--csv-file&quot;,true,false,null,null,true);</span>
+<span class="nc" id="L16">    Option addTodoOption = new Option(&quot;--add-todo&quot;,false,true,&quot;--todo-text&quot;,&quot;--csv-file&quot;,false);</span>
+<span class="nc" id="L17">    Option todoTextOption = new Option(&quot;--todo-text&quot;,false,false,null,&quot;--add-todo&quot;,true);</span>
+<span class="nc" id="L18">    Option completedOption = new Option(&quot;--completed&quot;,false,false,null,&quot;--add-todo&quot;,false);</span>
+<span class="nc" id="L19">    Option dueOption = new Option(&quot;--due&quot;,false,false,null,&quot;--add-todo&quot;,true);</span>
+<span class="nc" id="L20">    Option priorityOption = new Option(&quot;--priority&quot;,false,false,null,&quot;--add-todo&quot;,true);</span>
+<span class="nc" id="L21">    Option categoryOption = new Option(&quot;--category&quot;,false,false,null,&quot;--add-todo&quot;,true);</span>
+<span class="nc" id="L22">    Option updateCompleteOption = new Option(&quot;--complete-todo&quot;,false,false,null,&quot;--csv-file&quot;,true);</span>
+<span class="nc" id="L23">    Option displayOption = new Option(&quot;--display&quot;,false,true,null,&quot;--csv-file&quot;,false);</span>
+<span class="nc" id="L24">    Option showIncompleteOption = new Option(&quot;--show-incomplete&quot;,false,false,null,&quot;--display&quot;,false);</span>
+<span class="nc" id="L25">    Option showCategoryOption = new Option(&quot;--show-category&quot;,false,false,null,&quot;--display&quot;,true);</span>
+<span class="nc" id="L26">    Option sortByDateOption = new Option(&quot;--sort-by-date&quot;,false,false,null,&quot;--display&quot;,false);</span>
+<span class="nc" id="L27">    Option sortByPriorityOption = new Option(&quot;--sort-by-priority&quot;,false,false,null,&quot;--display&quot;,false);</span>
+    /**
+     * Add options to the option list
+     */
+<span class="nc" id="L31">    Options options = new Options();</span>
+<span class="nc" id="L32">    options.addOption(csvFileOption);</span>
+<span class="nc" id="L33">    options.addOption(addTodoOption);</span>
+<span class="nc" id="L34">    options.addOption(todoTextOption);</span>
+<span class="nc" id="L35">    options.addOption(completedOption);</span>
+<span class="nc" id="L36">    options.addOption(dueOption);</span>
+<span class="nc" id="L37">    options.addOption(priorityOption);</span>
+<span class="nc" id="L38">    options.addOption(categoryOption);</span>
+<span class="nc" id="L39">    options.addOption(displayOption);</span>
+<span class="nc" id="L40">    options.addOption(updateCompleteOption);</span>
+<span class="nc" id="L41">    options.addOption(showIncompleteOption);</span>
+<span class="nc" id="L42">    options.addOption(showCategoryOption);</span>
+<span class="nc" id="L43">    options.addOption(sortByDateOption);</span>
+<span class="nc" id="L44">    options.addOption(sortByPriorityOption);</span>
+    /**
+     * Parse the command line
+     */
+<span class="nc" id="L48">    CommandLineParse parser = new CommandLineParse();</span>
+<span class="nc" id="L49">    CommandLine cmd = parser.parse(options,args);</span>
+
+<span class="nc" id="L51">    TodoList todoList = new TodoList(cmd.getFilePath());</span>
+    /**
+     * Add a new Todo
+     */
+<span class="nc bnc" id="L55" title="All 2 branches missed.">    if(cmd.isAddTodo()){</span>
+<span class="nc" id="L56">      TodoBuilder newTodoBuilder = new TodoBuilder(cmd.todoDescription());</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">      if(cmd.hasCompleted()){</span>
+<span class="nc" id="L58">        newTodoBuilder.addCompleted(true);</span>
+      }
+<span class="nc bnc" id="L60" title="All 2 branches missed.">      if(cmd.hasDueDate()){</span>
+<span class="nc" id="L61">        newTodoBuilder.addDue(cmd.getDueDate());</span>
+      }
+<span class="nc bnc" id="L63" title="All 2 branches missed.">      if(cmd.hasPriority()){</span>
+<span class="nc" id="L64">        newTodoBuilder.addPriority(cmd.getPriorityValue());</span>
+      }
+<span class="nc bnc" id="L66" title="All 2 branches missed.">      if(cmd.hasCategory()){</span>
+<span class="nc" id="L67">        newTodoBuilder.addCategory(cmd.getCategoryValue());</span>
+      }
+      // update the id
+<span class="nc" id="L70">      Todo newTodo = newTodoBuilder.build();</span>
+<span class="nc" id="L71">      newTodo.setId(todoList.getTodoList().size() + 1);</span>
+<span class="nc" id="L72">      todoList.addTodo(newTodo,cmd.getFilePath());</span>
+    }
+    /**
+     * Update complete todo status based on id
+     */
+<span class="nc bnc" id="L77" title="All 2 branches missed.">    if(cmd.hasUpdateTodo()){</span>
+<span class="nc" id="L78">      String id = cmd.getUpdateTodoID();</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">      if(Integer.parseInt(id) &lt;= todoList.getTodoList().size()){</span>
+<span class="nc" id="L80">        todoList.completeTodo(id, cmd.getFilePath());</span>
+      }
+      else{
+<span class="nc" id="L83">        throw new ParseException(&quot;Cannot found Todo associated with id&quot;);</span>
+      }
+    }
+    /**
+     * Display the todos
+     */
+<span class="nc bnc" id="L89" title="All 2 branches missed.">    if(cmd.hasDisplay()){</span>
+<span class="nc" id="L90">      ArrayList&lt;Todo&gt; todoListCopy = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L91">      todoListCopy.addAll(todoList.getList());</span>
+<span class="nc" id="L92">      ArrayList&lt;Todo&gt; displayList = todoListCopy;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">      if(cmd.hasShowIncomplete()){</span>
+<span class="nc" id="L94">        displayList = todoList.filterByInComplete(displayList);</span>
+      }
+<span class="nc bnc" id="L96" title="All 2 branches missed.">      if(cmd.hasShowCategory()){</span>
+<span class="nc" id="L97">        displayList = todoList.filterByCategory(displayList,cmd.getShowCategoryValue());</span>
+      }
+<span class="nc bnc" id="L99" title="All 4 branches missed.">      if(cmd.hasSortByDate() &amp;&amp; cmd.hasSortByPriority()){</span>
+<span class="nc" id="L100">        throw new IllegalArgumentException(&quot;You can not sort by date and priority simultaneously&quot;);</span>
+      }
+<span class="nc bnc" id="L102" title="All 2 branches missed.">      if(cmd.hasSortByDate()){</span>
+<span class="nc" id="L103">        displayList =  todoList.sortByDueDate(displayList);</span>
+      }
+<span class="nc bnc" id="L105" title="All 2 branches missed.">      if(cmd.hasSortByPriority()){</span>
+<span class="nc" id="L106">        displayList =  todoList.sortByPriority(displayList);</span>
+      }
+<span class="nc" id="L108">      todoList.printTodoList(displayList);</span>
+    }
+<span class="nc" id="L110">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,16 @@
+-classpath 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\build\\classes\\java\\main;G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\build\\resources\\main'
+-d 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\build\\docs\\javadoc'
+-doctitle 'Assignment_6 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'Assignment_6 1.0-SNAPSHOT API'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem1\\ElementNode.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem1\\EmptyNode.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem1\\ILinkedList.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem1\\IPQ.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem1\\PriorityQueue.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem2\\BagOfWords.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem2\\EleNode.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem2\\EmpNode.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem2\\IBag.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_6\\src\\main\\java\\problem2\\IList.java'

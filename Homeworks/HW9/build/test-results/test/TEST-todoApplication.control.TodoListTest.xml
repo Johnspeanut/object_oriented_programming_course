@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="todoApplication.control.TodoListTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:07" hostname="LAPTOP-UVF4RGU1" time="0.015">
+  <properties/>
+  <testcase name="filterByCategory" classname="todoApplication.control.TodoListTest" time="0.003"/>
+  <testcase name="sortByPriority" classname="todoApplication.control.TodoListTest" time="0.002"/>
+  <testcase name="sortByDueDate" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="addTodo" classname="todoApplication.control.TodoListTest" time="0.001"/>
+  <testcase name="testToString" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="completeTodo" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="getList" classname="todoApplication.control.TodoListTest" time="0.001"/>
+  <testcase name="getHEADER" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="getTodoList" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="testHashCode" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <testcase name="filterByInComplete" classname="todoApplication.control.TodoListTest" time="0.001"/>
+  <testcase name="testEquals" classname="todoApplication.control.TodoListTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

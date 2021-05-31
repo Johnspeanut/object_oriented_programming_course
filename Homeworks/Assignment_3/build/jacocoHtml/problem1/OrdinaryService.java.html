@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrdinaryService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">OrdinaryService.java</span></div><h1>OrdinaryService.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+public abstract class OrdinaryService extends Service implements CalculateHours,ApplyDiscountRate{
+  private static final int BASERATE = 80; // Base rate for all Interior classes.
+  private double discountPercent;
+<span class="fc" id="L8">  private boolean is10thService = false;</span>
+
+  public OrdinaryService(String address, enumOfSize size, boolean serviceMonthly, int numPreviousServices) {
+<span class="fc" id="L11">    super(address, size, serviceMonthly, numPreviousServices);</span>
+<span class="fc" id="L12">  }</span>
+
+  public static int getBASERATE() {
+<span class="fc" id="L15">    return BASERATE;</span>
+  }
+
+
+  public double getDiscountPercent() {
+<span class="fc" id="L20">    apply10thDiscountRate();</span>
+<span class="fc" id="L21">    applyDiscountRate();</span>
+<span class="fc" id="L22">    return discountPercent;</span>
+  }
+
+  public boolean isIs10thService() {
+<span class="fc" id="L26">    apply10thDiscountRate();</span>
+<span class="fc" id="L27">    return is10thService;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L33">      return true;</span>
+    }
+<span class="pc bpc" id="L35" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L36">      return false;</span>
+    }
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L39">      return false;</span>
+    }
+<span class="fc" id="L41">    OrdinaryService that = (OrdinaryService) o;</span>
+<span class="pc bpc" id="L42" title="2 of 4 branches missed.">    return Double.compare(that.discountPercent, discountPercent) == 0</span>
+        &amp;&amp; is10thService == that.is10thService;
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L48">    return Objects.hash(super.hashCode(), discountPercent, is10thService);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L53">    return &quot;OrdinaryService{&quot; +</span>
+        &quot;, discountPercent=&quot; + discountPercent +
+<span class="fc" id="L55">        &quot;, is10thService=&quot; + is10thService + super.toString() +</span>
+        '}';
+  }
+
+  @Override
+  public void apply10thDiscountRate() {
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if(getNumPreviousServices() % 10 == 9){</span>
+<span class="fc" id="L62">      this.is10thService = true;</span>
+    }
+<span class="fc" id="L64">  }</span>
+
+  @Override
+  public void applyDiscountRate() {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    if(this.is10thService){</span>
+<span class="fc" id="L69">      this.discountPercent = 0.5;</span>
+    }else{
+<span class="pc bpc" id="L71" title="1 of 2 branches missed.">      if(this.isServiceMonthly()){</span>
+<span class="fc" id="L72">        this.discountPercent = 0.1;</span>
+      }
+    }
+
+<span class="fc" id="L76">  }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

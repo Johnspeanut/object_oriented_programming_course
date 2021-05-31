@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WriteCSV.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.model</a> &gt; <span class="el_source">WriteCSV.java</span></div><h1>WriteCSV.java</h1><pre class="source lang-java linenums">package todoApplication.model;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class WriteCSV {
+
+    private ArrayList&lt;String&gt; header;
+
+<span class="nc" id="L12">    public WriteCSV() {</span>
+<span class="nc" id="L13">        this.header = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L14">        addHeader();</span>
+<span class="nc" id="L15">    }</span>
+
+    /**
+     * add header to the header list
+     */
+    private void addHeader(){
+<span class="nc" id="L21">        this.header.add(&quot;id&quot;);</span>
+<span class="nc" id="L22">        this.header.add(&quot;text&quot;);</span>
+<span class="nc" id="L23">        this.header.add(&quot;completed&quot;);</span>
+<span class="nc" id="L24">        this.header.add(&quot;due&quot;);</span>
+<span class="nc" id="L25">        this.header.add(&quot;priority&quot;);</span>
+<span class="nc" id="L26">        this.header.add(&quot;category&quot;);</span>
+<span class="nc" id="L27">    }</span>
+
+    /**
+     * print the item in the list to CSV file
+     * @param todoList the todo list to be printed
+     * @param fileName path of the csv file
+     */
+    public void writeCSV(ArrayList&lt;ArrayList&lt;String&gt;&gt; todoList, String fileName){
+<span class="nc" id="L35">        todoList.add(0,this.header);</span>
+<span class="nc" id="L36">        try (BufferedWriter CSVWriter =</span>
+                     new BufferedWriter(new FileWriter(fileName))) {
+            //String outputFile = null;
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            for(int i = 0; i &lt; todoList.size();i++) {</span>
+<span class="nc" id="L40">                List&lt;String&gt; todo = todoList.get(i);</span>
+                // join each element with comma, and print
+<span class="nc" id="L42">                String line = String.join(&quot;,&quot;,todo);</span>
+                // end of each todo, add newline
+<span class="nc" id="L44">                line = line + System.lineSeparator();</span>
+                // write to the csv file
+<span class="nc" id="L46">                CSVWriter.write(line);</span>
+            }
+<span class="nc" id="L48">        } catch (IOException e) {</span>
+<span class="nc" id="L49">            e.printStackTrace();</span>
+<span class="nc" id="L50">        }</span>
+
+
+<span class="nc" id="L53">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.26.0" timestamp="2021-04-22T23:11:17.975">
+<file name="G:\2020NEU\CS5001\Group_Yaqian_Liu__Wenxin_Yang_Qiong_Peng\HW9\src\main\java\todoApplication\control\TodoList.java">
+<violation beginline="162" endline="162" begincolumn="7" endcolumn="24" rule="SystemPrintln" ruleset="Best Practices" package="todoApplication.control" class="TodoList" method="printTodoList" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+<file name="G:\2020NEU\CS5001\Group_Yaqian_Liu__Wenxin_Yang_Qiong_Peng\HW9\src\main\java\todoApplication\model\ReadCSV.java">
+<violation beginline="10" endline="46" begincolumn="8" endcolumn="1" rule="ClassNamingConventions" ruleset="Code Style" package="todoApplication.model" class="ReadCSV" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_codestyle.html#classnamingconventions" priority="1">
+The utility class name 'ReadCSV' doesn't match '[A-Z][a-zA-Z0-9]+(Utils?|Helper|Constants)'
+</violation>
+</file>
+<file name="G:\2020NEU\CS5001\Group_Yaqian_Liu__Wenxin_Yang_Qiong_Peng\HW9\src\main\java\todoApplication\view\CommandLineParse.java">
+<violation beginline="120" endline="120" begincolumn="13" endcolumn="30" rule="SystemPrintln" ruleset="Best Practices" package="todoApplication.view" class="CommandLineParse" method="parse" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+</pmd>

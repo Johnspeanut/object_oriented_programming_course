@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_1.NodeTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-02-15T06:59:47" hostname="LAPTOP-UVF4RGU1" time="0.005">
+  <properties/>
+  <testcase name="testGetNextNode" classname="problem_1.NodeTest" time="0.001"/>
+  <testcase name="testToString" classname="problem_1.NodeTest" time="0.001"/>
+  <testcase name="setNextNode" classname="problem_1.NodeTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem_1.NodeTest" time="0.0"/>
+  <testcase name="testGetCourse" classname="problem_1.NodeTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem_1.NodeTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

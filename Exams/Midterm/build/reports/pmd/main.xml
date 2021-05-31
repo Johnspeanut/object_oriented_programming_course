@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.26.0" timestamp="2021-03-10T23:34:30.493">
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Exams\Midterm\src\main\java\midtermExam\p1\SelfEmployedFiler.java">
+<violation beginline="11" endline="11" begincolumn="18" endcolumn="31" rule="FieldNamingConventions" ruleset="Code Style" package="midtermExam.p1" class="SelfEmployedFiler" variable="TravelExpenses" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_codestyle.html#fieldnamingconventions" priority="1">
+The field name 'TravelExpenses' doesn't match '[a-z][a-zA-Z0-9]*'
+</violation>
+<violation beginline="11" endline="11" begincolumn="18" endcolumn="31" rule="VariableNamingConventions" ruleset="Code Style" package="midtermExam.p1" class="SelfEmployedFiler" variable="TravelExpenses" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_codestyle.html#variablenamingconventions" priority="1">
+Variables should start with a lowercase character, 'TravelExpenses' starts with uppercase character.
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.26.0" timestamp="2021-02-27T00:12:41.728">
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_6\src\test\java\problem1\ElementNodeTest.java">
+<violation beginline="53" endline="53" begincolumn="17" endcolumn="33" rule="EqualsNull" ruleset="Error Prone" package="problem1" class="ElementNodeTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_6\src\test\java\problem1\PriorityQueueTest.java">
+<violation beginline="66" endline="66" begincolumn="17" endcolumn="32" rule="EqualsNull" ruleset="Error Prone" package="problem1" class="PriorityQueueTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+<violation beginline="68" endline="68" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="problem1" class="PriorityQueueTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="69" endline="69" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="problem1" class="PriorityQueueTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_6\src\test\java\problem2\BagOfWordsTest.java">
+<violation beginline="60" endline="60" begincolumn="17" endcolumn="39" rule="EqualsNull" ruleset="Error Prone" package="problem2" class="BagOfWordsTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_6\src\test\java\problem2\EleNodeTest.java">
+<violation beginline="54" endline="54" begincolumn="17" endcolumn="33" rule="EqualsNull" ruleset="Error Prone" package="problem2" class="EleNodeTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+<violation beginline="68" endline="68" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="problem2" class="EleNodeTest" method="testToString" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+<violation beginline="69" endline="69" begincolumn="5" endcolumn="22" rule="SystemPrintln" ruleset="Best Practices" package="problem2" class="EleNodeTest" method="testToString" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_bestpractices.html#systemprintln" priority="2">
+System.out.println is used
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.26.0" timestamp="2021-02-20T10:02:40.586">
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_1\MonthlyDonationTest.java">
+<violation beginline="59" endline="59" begincolumn="17" endcolumn="44" rule="EqualsNull" ruleset="Error Prone" package="problem_1" class="MonthlyDonationTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_1\NonProfitTest.java">
+<violation beginline="87" endline="87" begincolumn="17" endcolumn="38" rule="EqualsNull" ruleset="Error Prone" package="problem_1" class="NonProfitTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_1\OneTimeDonationTest.java">
+<violation beginline="49" endline="49" begincolumn="17" endcolumn="44" rule="EqualsNull" ruleset="Error Prone" package="problem_1" class="OneTimeDonationTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_1\PledgeDonationTest.java">
+<violation beginline="63" endline="63" begincolumn="17" endcolumn="43" rule="EqualsNull" ruleset="Error Prone" package="problem_1" class="PledgeDonationTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_2\AuthorTest.java">
+<violation beginline="38" endline="38" begincolumn="17" endcolumn="35" rule="EqualsNull" ruleset="Error Prone" package="problem_2" class="AuthorTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_2\BookTest.java">
+<violation beginline="64" endline="64" begincolumn="17" endcolumn="33" rule="EqualsNull" ruleset="Error Prone" package="problem_2" class="BookTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_2\CatalogTest.java">
+<violation beginline="111" endline="111" begincolumn="17" endcolumn="36" rule="EqualsNull" ruleset="Error Prone" package="problem_2" class="CatalogTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_2\MusicTest.java">
+<violation beginline="75" endline="75" begincolumn="17" endcolumn="34" rule="EqualsNull" ruleset="Error Prone" package="problem_2" class="MusicTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+<file name="G:\2020NEU\CS5004\CS5004\Qiong_Peng_repository\Homeworks\Assignment_5\src\test\java\problem_2\RecordingArtistTest.java">
+<violation beginline="28" endline="28" begincolumn="17" endcolumn="44" rule="EqualsNull" ruleset="Error Prone" package="problem_2" class="RecordingArtistTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+</pmd>

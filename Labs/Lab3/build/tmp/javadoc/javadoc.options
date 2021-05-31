@@ -1,0 +1,15 @@
+-classpath 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\build\\classes\\java\\main;G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\build\\resources\\main'
+-d 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\build\\docs\\javadoc'
+-doctitle 'Lab3 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'Lab3 1.0-SNAPSHOT API'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\FoodItem.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\Fruit.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\MakeOrder.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\Meat.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\NonPerishable.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\Pasta.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\PerishableFood.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\Rice.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Labs\\Lab3\\src\\main\\java\\problem1\\Vegetable.java'

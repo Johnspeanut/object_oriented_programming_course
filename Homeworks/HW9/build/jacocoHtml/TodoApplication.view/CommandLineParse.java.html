@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommandLineParse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.view</a> &gt; <span class="el_source">CommandLineParse.java</span></div><h1>CommandLineParse.java</h1><pre class="source lang-java linenums">package todoApplication.view;
+
+import java.util.ArrayList;
+
+/**
+ * Command line parser
+ */
+public class CommandLineParse {
+  CommandLine cmd;
+<span class="fc" id="L10">  private ArrayList&lt;Option&gt; validOptions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L11">  private ArrayList&lt;Option&gt; requiredOptions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L12">  private ArrayList&lt;Option&gt; conditionalRequiredOptions = new ArrayList&lt;&gt;();</span>
+
+  /**
+   * Constructor
+   */
+<span class="fc" id="L17">  public CommandLineParse(){</span>
+<span class="fc" id="L18">  }</span>
+
+  /**
+   * Create a list of required options.
+   * @param options options to be analysed.
+   */
+  private void createRequiredOptions(Options options){
+<span class="fc bfc" id="L25" title="All 2 branches covered.">    for(Option option: options.getExpectedListOption()){</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">      if(option.isRequired()){</span>
+<span class="fc" id="L27">        this.requiredOptions.add(option);</span>
+      }
+<span class="fc" id="L29">    }</span>
+<span class="fc" id="L30">  }</span>
+
+  /**
+   * Create a list of conditionally required options.
+   * @param options options to be analysed.
+   */
+  private void createConditionalRequiredOptions(Options options){
+<span class="fc bfc" id="L37" title="All 2 branches covered.">    for(Option option: options.getExpectedListOption()){</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">      if(option.isConditionalRequired()){</span>
+<span class="fc" id="L39">        this.conditionalRequiredOptions.add(option);</span>
+      }
+<span class="fc" id="L41">    }</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Check if an option is a list of options.
+   * @param option an option to be checked
+   * @param options a list of options.
+   * @return true if the option is in a list of options.
+   */
+  private boolean optionInOptionList(Option option, ArrayList&lt;Option&gt; options){
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    for(Option element:options){</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">      if(option.getOptName().equals(element.getOptName())){</span>
+<span class="fc" id="L53">        return true;</span>
+      }
+<span class="fc" id="L55">    }</span>
+<span class="fc" id="L56">    return false;</span>
+  }
+
+//  /**
+//   * Find an option based on its option name from a list of options.
+//   * @param optionList a list of options
+//   * @param optName Name of option to be checked
+//   * @return Option associated with the option name if found. O.W. return null.
+//   * @throws ParseException
+//   */
+//  public static Option findOptionBasedOnString(ArrayList&lt;Option&gt; optionList, String optName)
+//      throws ParseException {
+//    for(Option element:optionList){
+//      if(element.getOptName().equals(optName)){
+//        return element;
+//      }
+//    }
+//    return null;
+//  }
+
+  /**
+   * Check if any option of a list of options shows up in another list of options
+   * @param optionsA any option of a list of options
+   * @param optionsB another list of options
+   * @return true if exist. O.W. throw Parse exception.
+   * @throws ParseException
+   */
+  private boolean anyOptionExist(ArrayList&lt;Option&gt; optionsA, ArrayList&lt;Option&gt; optionsB)
+      throws ParseException {
+<span class="fc bfc" id="L85" title="All 2 branches covered.">    if(optionsA.isEmpty()){</span>
+<span class="fc" id="L86">      return true;</span>
+    }
+<span class="pc bpc" id="L88" title="1 of 2 branches missed.">    for(Option option:optionsA){</span>
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">      if(optionInOptionList(option, optionsB)){</span>
+<span class="fc" id="L90">        return true;</span>
+      }
+<span class="nc" id="L92">    }</span>
+<span class="nc" id="L93">    throw new ParseException(&quot;You miss conditional argument&quot;);</span>
+  }
+
+  /**
+   * Parse the arguments according to the specified options.
+   * @param options the specified Options
+   * @param args the command line arguments
+   * @return the list of atomic option.
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public CommandLine parse(Options options, String[] args) throws ParseException {
+    /**
+     * Deal with a case that command line is empty
+     */
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">    if(args.length == 0){</span>
+<span class="nc" id="L108">      throw new ParseException(&quot;The command line is empty&quot;);</span>
+    }
+    /**
+     * Create a list of valid options. Fill parameter for the option if it required parameter.
+     */
+<span class="fc bfc" id="L113" title="All 2 branches covered.">    for (int i = 0; i &lt; args.length; i++) {</span>
+<span class="fc" id="L114">      Option option = Options.findOptionBasedOnString(options.getExpectedListOption(), args[i]);</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">      if(option != null){</span>
+<span class="fc bfc" id="L116" title="All 2 branches covered.">        if(option.isNeedArg()){</span>
+          try{
+<span class="fc" id="L118">            option.setArg(args[++i]);</span>
+<span class="nc" id="L119">          } catch(IndexOutOfBoundsException e){</span>
+<span class="nc" id="L120">            System.out.println(option.getOptName() + &quot;needs parameter.&quot; + e.getMessage());</span>
+<span class="fc" id="L121">          }</span>
+        }
+<span class="fc" id="L123">        validOptions.add(option);</span>
+      }
+    }
+    /**
+     * Create a list of options that are necessary required.
+     */
+<span class="fc" id="L129">    createRequiredOptions(options);</span>
+<span class="fc bfc" id="L130" title="All 2 branches covered.">    for(Option option: this.requiredOptions){</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">      if(!optionInOptionList(option, this.validOptions)){</span>
+<span class="fc" id="L132">        throw new ParseException(&quot;You miss command &quot; + option.getOptName());</span>
+      }
+<span class="fc" id="L134">    }</span>
+    /**
+     * Create a list of conditionally required options.
+     */
+<span class="fc" id="L138">    createConditionalRequiredOptions(options);</span>
+<span class="fc" id="L139">    anyOptionExist(this.conditionalRequiredOptions, this.validOptions);</span>
+    /**
+     * check if an option has required attached option and the required attached option is in the
+     * list of valid options.
+     */
+<span class="fc bfc" id="L144" title="All 2 branches covered.">    for(Option option:this.validOptions){</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">      if(option.getRequiredAttachedOpName() != null){</span>
+<span class="pc bpc" id="L146" title="1 of 2 branches missed.">        if(Options.findOptionBasedOnString(this.validOptions, option.getRequiredAttachedOpName()) == null){</span>
+<span class="nc" id="L147">          throw new ParseException(option.getOptName() + &quot; needs &quot; + option.getRequiredAttachedOpName());</span>
+        }
+      }
+<span class="fc" id="L150">    }</span>
+    /**
+     * check if &quot;--sort-by-date&quot; is conflicted with &quot;--sort-by-priority&quot;.
+     */
+<span class="pc bpc" id="L154" title="3 of 4 branches missed.">    if(Options.checkOptNameInOptions(&quot;--sort-by-date&quot;, this.validOptions) &amp;&amp; Options.checkOptNameInOptions(&quot;--sort-by-priority&quot;, this.validOptions)){</span>
+<span class="nc" id="L155">      throw new ParseException(&quot;--sort-by-date cannot be combined with --sort-by-priority&quot; );</span>
+    }
+<span class="fc" id="L157">    cmd = new CommandLine();</span>
+<span class="fc" id="L158">    cmd.validOptions.addAll(this.validOptions);</span>
+<span class="fc" id="L159">    return cmd;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

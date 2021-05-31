@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FoodItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">FoodItem.java</span></div><h1>FoodItem.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+/**
+ * A class representing a food item.
+ * @author  John Peng
+ * @version v1.0
+ */
+public abstract class FoodItem implements MakeOrder{
+  public static double companyIncome;
+  double incomeKindsFood;
+  private String name;
+  double currentPricePerUnit;
+  int currentAvailableQuantity;
+
+  /**
+   * Constructor for the FoodItem class. This is an abstract class.
+   * @param name Name of the food.
+   * @param currentPricePerUnit Current price of the food per unit.
+   * @param currentAvailableQuantity Current available quantity of the food.
+   */
+
+<span class="fc" id="L24">  public FoodItem(String name, double currentPricePerUnit, int currentAvailableQuantity){</span>
+<span class="fc bfc" id="L25" title="All 4 branches covered.">    if(currentPricePerUnit &lt;= 0 || currentAvailableQuantity &lt;= 0){</span>
+<span class="fc" id="L26">      throw new IllegalArgumentException(&quot;The price or quantity you enter is invalid.&quot;);</span>
+    }
+<span class="fc" id="L28">    this.name = name;</span>
+<span class="fc" id="L29">    this.currentPricePerUnit = currentPricePerUnit;</span>
+<span class="fc" id="L30">    this.currentAvailableQuantity = currentAvailableQuantity;</span>
+<span class="fc" id="L31">  }</span>
+
+  /**
+   * Get company total income. This is a static method.
+   * @return Total income of the company.
+   */
+  public static double getCompanyIncome() {
+<span class="fc" id="L38">    return companyIncome;</span>
+  }
+
+  /**
+   * Get the name of the food.
+   * @return Name of the food.
+   */
+  public String getName() {
+<span class="fc" id="L46">    return name;</span>
+  }
+
+  /**
+   * Get the current price per unit of the food.
+   * @return current price per unit of the food.
+   */
+  public double getCurrentPricePerUnit() {
+<span class="fc" id="L54">    return currentPricePerUnit;</span>
+  }
+
+  /**
+   * Gets the current available quantity of the food.
+   * @return the current available quantity of the food.
+   */
+  public int getCurrentAvailableQuantity() {
+<span class="fc" id="L62">    return currentAvailableQuantity;</span>
+  }
+
+  /**
+   * Gets the income for a specific food item.
+   * @return income for a specific food item.
+   */
+  public double getIncomeKindsFood() {
+<span class="fc" id="L70">    return incomeKindsFood;</span>
+  }
+
+  /**
+   * Override equals.
+   * @param o Object to be checked.
+   * @return True if equal. O.W. false.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L80" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L81">      return true;</span>
+    }
+<span class="pc bpc" id="L83" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L84">      return false;</span>
+    }
+<span class="fc" id="L86">    FoodItem foodItem = (FoodItem) o;</span>
+<span class="pc bpc" id="L87" title="2 of 4 branches missed.">    return Double.compare(foodItem.currentPricePerUnit, currentPricePerUnit) == 0</span>
+        &amp;&amp; currentAvailableQuantity == foodItem.currentAvailableQuantity &amp;&amp; Objects
+<span class="pc bpc" id="L89" title="1 of 2 branches missed.">        .equals(name, foodItem.name);</span>
+  }
+
+  /**
+   * Override hashcode.
+   * @return Hashcode value.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L98">    return Objects.hash(name, currentPricePerUnit, currentAvailableQuantity);</span>
+  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd" version="6.26.0" timestamp="2021-04-22T23:11:18.883">
+<file name="G:\2020NEU\CS5001\Group_Yaqian_Liu__Wenxin_Yang_Qiong_Peng\HW9\src\test\java\view\OptionTest.java">
+<violation beginline="76" endline="76" begincolumn="17" endcolumn="35" rule="EqualsNull" ruleset="Error Prone" package="view" class="OptionTest" method="testEquals" externalInfoUrl="https://pmd.github.io/pmd-6.26.0/pmd_rules_java_errorprone.html#equalsnull" priority="1">
+Avoid using equals() to compare against null
+</violation>
+</file>
+</pmd>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BagOfWords.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_6</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">BagOfWords.java</span></div><h1>BagOfWords.java</h1><pre class="source lang-java linenums">package problem2;
+
+/**
+ * A class representing BagOfWords.
+ */
+public class BagOfWords implements IBag{
+  private IList top;
+
+  /**
+   * A private constructor for BagOfWords.
+   */
+<span class="fc" id="L12">  private BagOfWords(){</span>
+<span class="fc" id="L13">    this.top = new EmpNode();</span>
+<span class="fc" id="L14">  }</span>
+
+  /**
+   * An overloading private constructor for BagOfwords.
+   * @param node The top node.
+   */
+<span class="fc" id="L20">  private BagOfWords(IList node){</span>
+<span class="fc" id="L21">    this.top = node;</span>
+<span class="fc" id="L22">  }</span>
+
+  /**
+   * Static method open to public to create empty bag.
+   * @return The new empty bag.
+   */
+  public static BagOfWords emptyBagOfWords(){
+<span class="fc" id="L29">    return new BagOfWords();</span>
+  }
+
+  /**
+   * Gets the top element in the bag.
+   * @return The top element.
+   */
+  public IList getTop() {
+<span class="fc" id="L37">    return top;</span>
+  }
+
+  /**
+   * checks if the BagOfWords is empty.
+   * @return true if the BagOfWords contins no times, false otherwise.
+   */
+  @Override
+  public Boolean isEmpty() {
+<span class="fc" id="L46">    return this.size().equals(0);</span>
+  }
+
+  /**
+   * Checks the number of elements.
+   * @return number of elements in the BagOfwords.Duplicates are counted as separate elements.
+   */
+  @Override
+  public Integer size() {
+<span class="fc" id="L55">    return this.top.count();</span>
+  }
+
+  /**
+   * Create a new BagOfWords that contains all elements in the original BagOfWords plus s.
+   * Underlying data structure is linked list. Adding is insert from the front.
+   * @param s The new added string.
+   * @return A new BagOfWords.
+   */
+  @Override
+  public BagOfWords add(String s) {
+    IList newTop;
+<span class="fc" id="L67">      newTop = new EleNode(s,this.top);</span>
+<span class="fc" id="L68">    return new BagOfWords(newTop);</span>
+  }
+
+  /**
+   * Checks if the BagOfWords contains s.
+   * @param s The string be be checked.
+   * @return
+   */
+  @Override
+  public Boolean contains(String s) {
+<span class="fc" id="L78">return this.top.contains(s);</span>
+  }
+
+  /**
+   * Override equals method.
+   * Checks they share them same size and items in a bag can be found in another bag.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L89" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L90">      return true;</span>
+    }
+<span class="fc bfc" id="L92" title="All 2 branches covered.">    if (!(o instanceof BagOfWords)) {</span>
+<span class="fc" id="L93">      return false;</span>
+    }
+<span class="fc" id="L95">    BagOfWords that = (BagOfWords) o;</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">    if(!this.size().equals(that.size())){</span>
+<span class="nc" id="L97">      return false;</span>
+    }
+<span class="fc" id="L99">    IList cur = this.top;</span>
+<span class="fc" id="L100">    IList curThat = that.top;</span>
+<span class="fc bfc" id="L101" title="All 2 branches covered.">    while(!(cur instanceof EmpNode)){</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">      if(!curThat.contains(cur.getString())){</span>
+<span class="fc" id="L103">        return false;</span>
+      }
+<span class="fc" id="L105">      cur = cur.getRest();</span>
+    }
+<span class="fc" id="L107">    return true;</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * Compute hashcode value for each element in the bag and sum them.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L117">    int value = 0;</span>
+<span class="fc" id="L118">    IList curr = this.top;</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">    while(curr instanceof EleNode){</span>
+<span class="fc" id="L120">      value += curr.getString().hashCode();</span>
+<span class="fc" id="L121">      curr = curr.getRest();</span>
+    }
+<span class="fc" id="L123">    return value;</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L132">    return &quot;BagOfWords{&quot; + top.toString() +</span>
+        '}';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

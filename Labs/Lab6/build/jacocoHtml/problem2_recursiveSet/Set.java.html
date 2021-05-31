@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Set.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab6</a> &gt; <a href="index.source.html" class="el_package">problem2_recursiveSet</a> &gt; <span class="el_source">Set.java</span></div><h1>Set.java</h1><pre class="source lang-java linenums">package problem2_recursiveSet;
+
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+
+public class Set implements ISet {
+  private ILinkedList top;
+
+<span class="fc" id="L8">  private Set(){</span>
+<span class="fc" id="L9">    this.top = new EmptyNode();</span>
+<span class="fc" id="L10">  }</span>
+
+<span class="fc" id="L12">  private Set(ILinkedList element){</span>
+<span class="fc" id="L13">    this.top = element;</span>
+<span class="fc" id="L14">  }</span>
+
+  public static Set emptySet(){
+<span class="fc" id="L17">    return new Set();</span>
+  }
+
+  @Override
+  public boolean isEmpty() {
+<span class="nc" id="L22">return this.size().equals(0);</span>
+  }
+
+  @Override
+  public ISet add(Integer item) {
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">    if(this.contains(item)){</span>
+<span class="nc" id="L28">      return this;</span>
+    }
+<span class="fc" id="L30">  ILinkedList element = new ElementNode(item, this.top);</span>
+<span class="fc" id="L31">  return new Set(element);</span>
+}
+
+
+  @Override
+  public boolean contains(Integer item) {
+<span class="fc" id="L37">    return this.top.contains(item);</span>
+  }
+
+  @Override
+  public ISet remove(Integer item) {
+<span class="nc bnc" id="L42" title="All 2 branches missed.">    if(this.contains(item)){</span>
+<span class="nc" id="L43">      Set newSet = Set.emptySet();</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">      if(this.top.getItem().equals(item)){</span>
+<span class="nc" id="L45">        newSet.top = this.top.getRest();</span>
+      }else{
+<span class="nc" id="L47">        ILinkedList curNode = this.top;</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        while(!curNode.isEmpty()){</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">          if(curNode.getItem().equals(item)){</span>
+<span class="nc" id="L50">            newSet.add(curNode.getItem());</span>
+          }
+<span class="nc" id="L52">          curNode = curNode.getRest();</span>
+        }
+      }
+<span class="nc" id="L55">      return newSet;</span>
+    }else{
+<span class="nc" id="L57">      throw new ValueException(&quot;The item is not in the set&quot;);</span>
+    }
+  }
+
+  @Override
+  public Integer size() {
+<span class="fc" id="L63">    return this.top.count();</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

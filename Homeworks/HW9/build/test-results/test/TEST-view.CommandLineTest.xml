@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="view.CommandLineTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:08" hostname="LAPTOP-UVF4RGU1" time="0.011">
+  <properties/>
+  <testcase name="hasShowIncomplete" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="isAddTodo" classname="view.CommandLineTest" time="0.001"/>
+  <testcase name="hasCategory" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="getDueDate" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="getCategoryValue" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasDisplay" classname="view.CommandLineTest" time="0.001"/>
+  <testcase name="hasSortByDate" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="getPriorityValue" classname="view.CommandLineTest" time="0.003"/>
+  <testcase name="hasDueDate" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasSortByPriority" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasShowCategory" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasUpdateTodo" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="todoDescription" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="getUpdateTodoID" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="getFilePath" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasPriority" classname="view.CommandLineTest" time="0.001"/>
+  <testcase name="getShowCategoryValue" classname="view.CommandLineTest" time="0.0"/>
+  <testcase name="hasCompleted" classname="view.CommandLineTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

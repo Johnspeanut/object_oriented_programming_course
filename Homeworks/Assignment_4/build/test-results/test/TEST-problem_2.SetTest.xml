@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_2.SetTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-02-15T06:59:47" hostname="LAPTOP-UVF4RGU1" time="0.006">
+  <properties/>
+  <testcase name="testToString" classname="problem_2.SetTest" time="0.001"/>
+  <testcase name="remove" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="contains" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="add" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="size" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="emptySet" classname="problem_2.SetTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem_2.SetTest" time="0.001"/>
+  <testcase name="isEmpty" classname="problem_2.SetTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WindowCleaning.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">WindowCleaning.java</span></div><h1>WindowCleaning.java</h1><pre class="source lang-java linenums">package problem1;
+
+public class WindowCleaning extends ExteriorService {
+<span class="fc" id="L4">  private double windowCleaningExtraFeeRate = 0;</span>
+  private int floor;
+  private double price;
+
+  public WindowCleaning(String address, enumOfSize size, boolean serviceMonthly,
+      int numPreviousServices, int floor) {
+<span class="fc" id="L10">    super(address, size, serviceMonthly, numPreviousServices);</span>
+<span class="pc bpc" id="L11" title="2 of 4 branches missed.">    if(floor &gt; 3 || floor &lt;= 0){</span>
+<span class="nc" id="L12">      throw new IllegalArgumentException(&quot;The floor your entered is invalid.&quot;);</span>
+    }
+<span class="fc" id="L14">    this.floor = floor;</span>
+<span class="fc" id="L15">    calculateWindowExtraFeeRate();</span>
+<span class="fc" id="L16">  }</span>
+
+  public double getWindowCleaningExtraFeeRate() {
+<span class="fc" id="L19">    calculateWindowExtraFeeRate();</span>
+<span class="fc" id="L20">    return windowCleaningExtraFeeRate;</span>
+  }
+
+  public int getFloor() {
+<span class="fc" id="L24">    return floor;</span>
+  }
+
+  private void calculateWindowExtraFeeRate(){
+<span class="fc bfc" id="L28" title="All 2 branches covered.">    if(floor &gt; 1){</span>
+<span class="fc" id="L29">      windowCleaningExtraFeeRate = 0.05;</span>
+    }
+<span class="fc" id="L31">  }</span>
+
+  @Override
+  public void calculatePrice() {
+<span class="fc" id="L35">    getDiscountPercent();</span>
+<span class="fc" id="L36">    getHours();</span>
+<span class="fc" id="L37">    this.price = (getHours() * getBASERATE()) * (1 + windowCleaningExtraFeeRate)* (1 - getDiscountPercent());</span>
+<span class="fc" id="L38">  }</span>
+
+  public double getPrice() {
+<span class="fc" id="L41">    calculatePrice();</span>
+<span class="fc" id="L42">    return price;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

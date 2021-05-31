@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="midtermExam.p1.IndividualFilerTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2021-03-11T09:31:43" hostname="LAPTOP-UVF4RGU1" time="0.011">
+  <properties/>
+  <testcase name="getMortgageInterestPaid" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getTotalIncomeTaxPaid" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="estimateRetireDeduction" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="testToString" classname="midtermExam.p1.IndividualFilerTest" time="0.001"/>
+  <testcase name="getCharitableDonation" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getContactInfo" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getContributionHealth" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getStudentLoadPaid" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="estimateMortgagePropertyDeduction" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="estimateDonationDeduction" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="estimateStudentDeduction" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="estimateBasicTaxableIncome" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="testHashCode" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getLastYearEarnings" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="calculateTax" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="testEquals" classname="midtermExam.p1.IndividualFilerTest" time="0.001"/>
+  <testcase name="getContributionRetirement" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <testcase name="getTaxID" classname="midtermExam.p1.IndividualFilerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

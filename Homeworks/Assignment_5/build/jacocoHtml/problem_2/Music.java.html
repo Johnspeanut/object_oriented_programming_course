@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Music.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">Music.java</span></div><h1>Music.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * A class representing Music
+ */
+public class Music implements ILibrary{
+<span class="fc" id="L10">  private String bandName = null;</span>
+<span class="fc" id="L11">  private ArrayList&lt;RecordingArtist&gt; recordingArtists = new ArrayList&lt;RecordingArtist&gt;();</span>
+  private String title;
+  private int year;
+
+  /**
+   * Creates two constructors for the class. Users could input band name and a collection of members or just a artist or artists.
+   * If there is only one artist, then the collection of artists contains just one member. In this case,
+   * band name is null.
+   * @param recordingArtists A collection of artists.
+   * @param title The music title.
+   * @param year The released year.
+   */
+<span class="fc" id="L23">  public Music(ArrayList&lt;RecordingArtist&gt; recordingArtists, String title, int year) {</span>
+<span class="fc" id="L24">    this.recordingArtists = recordingArtists;</span>
+<span class="fc" id="L25">    this.title = title;</span>
+<span class="fc" id="L26">    this.year = year;</span>
+<span class="fc" id="L27">  }</span>
+
+  /**
+   * Overload constructor.This time we have a addtional parameter, band name.
+   * @param bandName Band name.
+   * @param recordingArtists A collection of artists.
+   * @param title The music title.
+   * @param year The released year.
+   */
+  public Music(String bandName, ArrayList&lt;RecordingArtist&gt; recordingArtists, String title,
+<span class="fc" id="L37">      int year) {</span>
+<span class="fc" id="L38">    this.bandName = bandName;</span>
+<span class="fc" id="L39">    this.recordingArtists = recordingArtists;</span>
+<span class="fc" id="L40">    this.title = title;</span>
+<span class="fc" id="L41">    this.year = year;</span>
+<span class="fc" id="L42">  }</span>
+
+  /**
+   * Gets band name if it has.
+   * @return Reture band name or null.
+   */
+  public String getBandName() {
+<span class="fc" id="L49">    return bandName;</span>
+  }
+
+  /**
+   * Gets a collection of artists.
+   * @return a collection of artists.
+   */
+  public ArrayList&lt;RecordingArtist&gt; getRecordingArtists() {
+<span class="fc" id="L57">    return recordingArtists;</span>
+  }
+
+  /**
+   * Gets released year.
+   * @return released year.
+   */
+  public int getYear() {
+<span class="fc" id="L65">    return year;</span>
+  }
+
+  /**
+   * Check if a music title has a keyword.
+   * @param keyword A keyword to be checked.
+   * @return true if it has.
+   */
+  @Override
+  public boolean search(String keyword) {
+<span class="fc bfc" id="L75" title="All 2 branches covered.">    if(title.toLowerCase().indexOf(keyword.toLowerCase()) != -1){</span>
+<span class="fc" id="L76">      return true;</span>
+    }
+<span class="fc" id="L78">    return false;</span>
+  }
+
+  /**
+   * Check if music has the author.
+   * @param author The author to be checked.
+   * @return false always cause the object is music.
+   */
+  @Override
+  public boolean search(Author author) {
+<span class="fc" id="L88">    return false;</span>
+  }
+
+  /**
+   * Check if music has the artist.
+   * @param artist The author to be checked.
+   * @return true if it has. Otherwise, false.
+   */
+  @Override
+  public boolean search(RecordingArtist artist) {
+<span class="pc bpc" id="L98" title="1 of 2 branches missed.">    if(this.recordingArtists.isEmpty()){</span>
+<span class="nc" id="L99">      return false;</span>
+    }
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">    for(RecordingArtist element:this.recordingArtists){</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">      if(element.equals(artist)){</span>
+<span class="fc" id="L103">        return true;</span>
+      }
+<span class="fc" id="L105">    }</span>
+<span class="nc" id="L106">    return false;</span>
+  }
+
+  /**
+   * Gets the title name of the music.
+   * This method need to be used in Catalog. So it is override ILibrary interface method.
+   * @return title of the music.
+   */
+  @Override
+  public String getTitle() {
+<span class="fc" id="L116">    return this.title;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L126" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L127">      return true;</span>
+    }
+<span class="fc bfc" id="L129" title="All 2 branches covered.">    if (!(o instanceof Music)) {</span>
+<span class="fc" id="L130">      return false;</span>
+    }
+<span class="fc" id="L132">    Music music = (Music) o;</span>
+<span class="pc bpc" id="L133" title="1 of 4 branches missed.">    return year == music.year &amp;&amp; Objects.equals(bandName, music.bandName)</span>
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">        &amp;&amp; Objects.equals(recordingArtists, music.recordingArtists) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        .equals(title, music.title);</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L144">    return Objects.hash(bandName, recordingArtists, title, year);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L153">    return &quot;Music{&quot; +</span>
+        &quot;bandName='&quot; + bandName + '\'' +
+        &quot;, recordingArtists=&quot; + recordingArtists +
+        &quot;, title='&quot; + title + '\'' +
+        &quot;, year=&quot; + year +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

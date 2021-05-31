@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.LockerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2021-01-28T02:51:59" hostname="LAPTOP-UVF4RGU1" time="0.005">
+  <properties/>
+  <testcase name="invalidInchesLockerNega" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="invalidInchesLockerZero" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="invalidAddMail" classname="problem2.LockerTest" time="0.003"/>
+  <testcase name="addMail" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="pickupMail" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="getHeightLocker" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="getItem" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="invalidPickupMail" classname="problem2.LockerTest" time="0.001"/>
+  <testcase name="getWidthLocker" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="invalidInchesLocker" classname="problem2.LockerTest" time="0.0"/>
+  <testcase name="getDepthLocker" classname="problem2.LockerTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

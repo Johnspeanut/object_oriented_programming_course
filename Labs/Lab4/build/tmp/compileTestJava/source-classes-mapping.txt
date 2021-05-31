@@ -1,0 +1,18 @@
+problem_1/PhotographersTest.java
+ problem_1.PhotographersTest
+problem_1/PoetTest.java
+ problem_1.PoetTest
+problem_1/DancersTest.java
+ problem_1.DancersTest
+problem_1/MusicianTest.java
+ problem_1.MusicianTest
+problem_1/ActorsTest.java
+ problem_1.ActorsTest
+problem_1/FilmmakersTest.java
+ problem_1.FilmmakersTest
+problem_1/PaintersTest.java
+ problem_1.PaintersTest
+problem_2/NodeTest.java
+ problem_2.NodeTest
+problem_2/LinkedListTest.java
+ problem_2.LinkedListTest

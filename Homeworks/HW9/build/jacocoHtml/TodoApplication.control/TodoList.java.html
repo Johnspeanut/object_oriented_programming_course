@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.control</a> &gt; <span class="el_source">TodoList.java</span></div><h1>TodoList.java</h1><pre class="source lang-java linenums">package todoApplication.control;
+
+import todoApplication.model.ReadCSV;
+import todoApplication.model.WriteCSV;
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
+/**
+ * Concrete class representing a to-do list.
+ */
+public class TodoList {
+
+  private static final String HEADER = &quot;\&quot;id\&quot;,\&quot;text\&quot;,\&quot;completed\&quot;,\&quot;due\&quot;,\&quot;priority\&quot;,\&quot;category\&quot;\n&quot;;
+<span class="pc" id="L19">  private ArrayList&lt;Todo&gt; list = new ArrayList&lt;&gt;();</span>
+
+
+  /**
+   * Constructs a new to-do list, based upon the provided input parameter.
+   * @param fileName File name of csv storing the data
+   * @throws IOException throw IO exception if file name doesn't exist
+   */
+<span class="nc" id="L27">  public TodoList(String fileName) throws IOException {</span>
+<span class="nc" id="L28">    ArrayList&lt;ArrayList&lt;String&gt;&gt; stringList = ReadCSV.readFile(fileName);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">    for (ArrayList todo:stringList){</span>
+<span class="nc" id="L30">      list.add(stringToTodo(todo));</span>
+<span class="nc" id="L31">    }</span>
+<span class="nc" id="L32">  }</span>
+
+  /**
+   * Overloading constructor the todolist
+   */
+<span class="fc" id="L37">  public TodoList(){</span>
+<span class="fc" id="L38">  }</span>
+
+  /**
+   * helper method converting a list of string to Todo object
+   * @param listTodo a list of string
+   * @return Todo object
+   */
+  private Todo stringToTodo(ArrayList&lt;String&gt; listTodo){
+<span class="nc" id="L46">    int id = Integer.parseInt(listTodo.get(0));</span>
+<span class="nc" id="L47">    String text = listTodo.get(1);</span>
+<span class="nc" id="L48">    Boolean ifComplete = Boolean.parseBoolean(listTodo.get(2));</span>
+
+    LocalDate localDate;
+<span class="nc bnc" id="L51" title="All 4 branches missed.">    if (listTodo.get(3).equals(&quot;?&quot;) || listTodo.get(3) == &quot;null&quot;) localDate = LocalDate.of(1000, 1, 1);</span>
+    else{
+<span class="nc" id="L53">    DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;M/d/yyyy&quot;);</span>
+<span class="nc" id="L54">    localDate = LocalDate.parse(listTodo.get(3),dateTimeFormatter);</span>
+    }
+
+<span class="nc" id="L57">    int priority = Integer.MIN_VALUE;</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">    if (listTodo.get(4).equals(&quot;?&quot;))</span>
+<span class="nc" id="L59">    {priority = 3;}</span>
+    else{
+<span class="nc" id="L61">    priority = Integer.parseInt(listTodo.get(4));}</span>
+
+<span class="nc bnc" id="L63" title="All 2 branches missed.">    String category = listTodo.get(5).equals(&quot;?&quot;) ? &quot;?&quot;:listTodo.get(5);</span>
+<span class="nc" id="L64">    Todo temp = new Todo(id,text,ifComplete,localDate,priority,category);</span>
+<span class="nc" id="L65">    return temp;</span>
+  }
+
+  /**
+   * get the header from todolist
+   *
+   * @return the header of todolist
+   */
+  public String getHEADER() {
+<span class="fc" id="L74">    return HEADER;</span>
+  }
+
+  /**
+   * Gets the to-do list as an ArrayList of Todos.
+   *
+   * @return the to-do list as an ArrayList of Todos.
+   */
+  public ArrayList&lt;Todo&gt; getList() {
+<span class="fc" id="L83">    return this.list;</span>
+  }
+
+  /**
+   * add a new todoElement in to the list
+   * @param todo a todo object to be added
+   * @param fileName a file name saving the data
+   */
+  public void addTodo(Todo todo, String fileName) {
+<span class="nc" id="L92">    list.add(todo);</span>
+<span class="nc" id="L93">    WriteCSV writeCSV = new WriteCSV();</span>
+<span class="nc" id="L94">    writeCSV.writeCSV(todoListToArrayList(),fileName);</span>
+<span class="nc" id="L95">  }</span>
+
+  /**
+   * Overloading addtodo method. No writing into the file.
+   * @param todo a todo object to be added
+   */
+  public void addTodo(Todo todo) {
+<span class="fc" id="L102">    list.add(todo);</span>
+<span class="fc" id="L103">  }</span>
+
+  /**
+   * convert todo to array list
+   * @return a list of string lists
+   */
+  private ArrayList&lt;ArrayList&lt;String&gt;&gt; todoListToArrayList(){
+<span class="nc" id="L110">    ArrayList&lt;ArrayList&lt;String&gt;&gt; returnList = new ArrayList&lt;ArrayList&lt;String&gt;&gt;();</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">    for(Todo element:this.list){</span>
+<span class="nc" id="L112">      ArrayList&lt;String&gt; returnElement = element.convertTodoToString();</span>
+<span class="nc" id="L113">      returnList.add(returnElement);</span>
+<span class="nc" id="L114">    }</span>
+<span class="nc" id="L115">    return returnList;</span>
+  }
+
+  /**
+   * update a todo status to complete based on id
+   * @param id the ia associated with the todo.
+   * @param fileName a file name saving the data
+   */
+  public void completeTodo(String id, String fileName) {
+<span class="nc" id="L124">    int intID = Integer.parseInt(id);</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    for(Todo csvTodo: this.list){</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">      if(csvTodo.getId() == intID){</span>
+<span class="nc" id="L127">        csvTodo.setCompleted(true);</span>
+<span class="nc" id="L128">        WriteCSV writeCSV = new WriteCSV();</span>
+<span class="nc" id="L129">        writeCSV.writeCSV(todoListToArrayList(),fileName);</span>
+      }
+<span class="nc" id="L131">    }</span>
+<span class="nc" id="L132">  }</span>
+
+  /**
+   * update a todo status to complete based on id
+   * @param id the ia associated with the todo.
+   */
+  public void completeTodo(String id) {
+<span class="fc" id="L139">    int intID = Integer.parseInt(id);</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">    for(Todo csvTodo: this.list){</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">      if(csvTodo.getId() == intID){</span>
+<span class="fc" id="L142">        csvTodo.setCompleted(true);</span>
+      }
+<span class="fc" id="L144">    }</span>
+<span class="fc" id="L145">  }</span>
+
+  /**
+   * Gets a list of todo
+   * @return a list of todo
+   */
+  public ArrayList&lt;Todo&gt; getTodoList(){
+<span class="fc" id="L152">    return this.list;</span>
+}
+
+  /**
+   * Print a list of todo
+   * @param todos a list of todo
+   */
+  public void printTodoList(ArrayList&lt;Todo&gt; todos){
+<span class="nc bnc" id="L160" title="All 2 branches missed.">    for(Todo element:todos){</span>
+<span class="nc" id="L161">      element.convertTodoToString();</span>
+<span class="nc" id="L162">      System.out.println(element.toString());</span>
+<span class="nc" id="L163">    }</span>
+<span class="nc" id="L164">}</span>
+
+  /**
+   * Filters the to-do list to only include incomplete to-dos.
+   * @param listTodo a list of todo
+   * @return a filtered to-do list.
+   */
+  public ArrayList&lt;Todo&gt; filterByInComplete(ArrayList&lt;Todo&gt; listTodo) {
+<span class="fc bfc" id="L172" title="All 2 branches covered.">    ArrayList&lt;Todo&gt; todos = (ArrayList&lt;Todo&gt;)listTodo.stream().filter( n -&gt; n.isCompleted() == false).collect(Collectors.toList());</span>
+<span class="fc" id="L173">    return todos;</span>
+  }
+
+  /**
+   * Filters the to-do list to only include to-dos with a particular group category.
+   * @param listTodo a list of todo
+   * @param category - to-do's group category as a String.
+   * @return a filtered to-do list.
+   */
+  public ArrayList&lt;Todo&gt; filterByCategory(ArrayList&lt;Todo&gt; listTodo, String category) {
+<span class="fc" id="L183">    ArrayList&lt;Todo&gt; todos = (ArrayList&lt;Todo&gt;) listTodo.stream().filter( n -&gt; n.getCategory().equals(category)).collect(Collectors.toList());</span>
+<span class="fc" id="L184">    return todos;</span>
+  }
+
+  /**
+   * Sorts the to-do list by due date (ascending).
+   * @param listTodo a list of todo
+   * @return a sorted to-do list.
+   */
+  public ArrayList&lt;Todo&gt; sortByDueDate(ArrayList&lt;Todo&gt; listTodo) {
+<span class="fc" id="L193">    Collections.sort(listTodo);</span>
+<span class="fc" id="L194">    return listTodo;</span>
+  }
+
+  /**
+   * Sorts the to-do list by priority (ascending).
+   * @param listTodo a list of todo
+   * @return a sorted to-do list.
+   */
+  public ArrayList&lt;Todo&gt; sortByPriority(ArrayList&lt;Todo&gt; listTodo) {
+<span class="fc" id="L203">    listTodo.sort(new PriorityComparator());</span>
+<span class="fc" id="L204">    return listTodo;</span>
+  }
+
+
+  /**
+   * Overrides the equals() to check if some other object is &quot;equal to&quot; this one.
+   *
+   * @param o - object to compare as an Object.
+   * @return true if the two objects are equal and false otherwise.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L216" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L217">      return true;</span>
+    }
+<span class="pc bpc" id="L219" title="1 of 4 branches missed.">    if (o == null || this.getClass() != o.getClass()) {</span>
+<span class="fc" id="L220">      return false;</span>
+    }
+<span class="fc" id="L222">    TodoList that = (TodoList) o;</span>
+<span class="fc" id="L223">    HashSet&lt;Todo&gt; thisSet = new HashSet&lt;&gt;(this.getList());</span>
+<span class="fc" id="L224">    HashSet&lt;Todo&gt; thatSet = new HashSet&lt;&gt;(that.getList());</span>
+<span class="fc" id="L225">    return thisSet.equals(thatSet);</span>
+  }
+
+  /**
+   * Overrides the hashcode() to get the hash code for the to-do list as an integer.
+   *
+   * @return the hash code for the to-do list as an integer.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L235">    HashSet&lt;Todo&gt; thisSet = new HashSet&lt;&gt;(this.getList());</span>
+<span class="fc" id="L236">    return thisSet.hashCode();</span>
+  }
+
+  /**
+   * Overrides the toString() to get the string representing the to-do list.
+   *
+   * @return the string representing the to-do list.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L246">    return &quot;TodoList{list=&quot; + this.getList() + &quot;}&quot;;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

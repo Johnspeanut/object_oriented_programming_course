@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TaxReturn.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midtermExam.p2</a> &gt; <span class="el_source">TaxReturn.java</span></div><h1>TaxReturn.java</h1><pre class="source lang-java linenums">package midtermExam.p2;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+/*
+ Class taxReturn contains information about a filled tax return.
+ */
+public class TaxReturn {
+
+  private Name taxFiller;
+  private Name coTaxFiller;
+  private ContactInfo fillerContactInformation;
+  private String TIN;
+  private Integer fillingYear;
+  private LocalDate dateTaxReturnFilled;
+  private Double amountOfTaxesOwed;
+  private Double amountOfTaxesOverpaid;
+  private Boolean taxApplicationProcessed;
+
+  public TaxReturn(Name taxFiller, Name coTaxFiller,
+                   ContactInfo fillerContactInformation, String TIN,
+                   Integer fillingYear, LocalDate dateTaxReturnFilled,
+<span class="nc" id="L24">                   Double amountOfTaxesOwed, Double amountOfTaxesOverpaid) {</span>
+<span class="nc" id="L25">    this.taxFiller = taxFiller;</span>
+<span class="nc" id="L26">    this.coTaxFiller = coTaxFiller;</span>
+<span class="nc" id="L27">    this.fillerContactInformation = fillerContactInformation;</span>
+<span class="nc" id="L28">    this.TIN = TIN;</span>
+<span class="nc" id="L29">    this.fillingYear = fillingYear;</span>
+<span class="nc" id="L30">    this.dateTaxReturnFilled = dateTaxReturnFilled;</span>
+<span class="nc" id="L31">    this.amountOfTaxesOwed = amountOfTaxesOwed;</span>
+<span class="nc" id="L32">    this.amountOfTaxesOverpaid = amountOfTaxesOverpaid;</span>
+<span class="nc" id="L33">    this.taxApplicationProcessed = false;</span>
+<span class="nc" id="L34">  }</span>
+
+  public TaxReturn(Name taxFiller, ContactInfo fillerContactInformation,
+                   String TIN, Integer fillingYear, LocalDate dateTaxReturnFilled,
+<span class="nc" id="L38">                   Double amountOfTaxesOwed, Double amountOfTaxesOverpaid) {</span>
+<span class="nc" id="L39">    this.taxFiller = taxFiller;</span>
+<span class="nc" id="L40">    this.coTaxFiller = null;</span>
+<span class="nc" id="L41">    this.fillerContactInformation = fillerContactInformation;</span>
+<span class="nc" id="L42">    this.TIN = TIN;</span>
+<span class="nc" id="L43">    this.fillingYear = fillingYear;</span>
+<span class="nc" id="L44">    this.dateTaxReturnFilled = dateTaxReturnFilled;</span>
+<span class="nc" id="L45">    this.amountOfTaxesOwed = amountOfTaxesOwed;</span>
+<span class="nc" id="L46">    this.amountOfTaxesOverpaid = amountOfTaxesOverpaid;</span>
+<span class="nc" id="L47">    this.taxApplicationProcessed = false;</span>
+<span class="nc" id="L48">  }</span>
+
+  public Name getTaxFiller() {
+<span class="nc" id="L51">    return taxFiller;</span>
+  }
+
+  public Name getCoTaxFiller() {
+<span class="nc" id="L55">    return coTaxFiller;</span>
+  }
+
+  public ContactInfo getFillerContactInformation() {
+<span class="nc" id="L59">    return fillerContactInformation;</span>
+  }
+
+  public String getTIN() {
+<span class="nc" id="L63">    return TIN;</span>
+  }
+
+  public Integer getFillingYear() {
+<span class="nc" id="L67">    return fillingYear;</span>
+  }
+
+  public LocalDate getDateTaxReturnFilled() {
+<span class="nc" id="L71">    return dateTaxReturnFilled;</span>
+  }
+
+  public Double getAmountOfTaxesOwed() {
+<span class="nc" id="L75">    return amountOfTaxesOwed;</span>
+  }
+
+  public Double getAmountOfTaxesOverpaid() {
+<span class="nc" id="L79">    return amountOfTaxesOverpaid;</span>
+  }
+
+  public Boolean getTaxApplicationProcessed() {
+<span class="nc" id="L83">    return taxApplicationProcessed;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L88" title="All 2 branches missed.">    if (this == o) return true;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">    if (!(o instanceof TaxReturn)) return false;</span>
+<span class="nc" id="L90">    TaxReturn taxReturn = (TaxReturn) o;</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">    return Objects.equals(getTaxFiller(), taxReturn.getTaxFiller()) &amp;&amp;</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        Objects.equals(getCoTaxFiller(), taxReturn.getCoTaxFiller()) &amp;&amp;</span>
+<span class="nc bnc" id="L93" title="All 2 branches missed.">        Objects.equals(getFillerContactInformation(), taxReturn.getFillerContactInformation()) &amp;&amp;</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        Objects.equals(getTIN(), taxReturn.getTIN()) &amp;&amp;</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        Objects.equals(getFillingYear(), taxReturn.getFillingYear()) &amp;&amp;</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        Objects.equals(getDateTaxReturnFilled(), taxReturn.getDateTaxReturnFilled()) &amp;&amp;</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        Objects.equals(getAmountOfTaxesOwed(), taxReturn.getAmountOfTaxesOwed()) &amp;&amp;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        Objects.equals(getAmountOfTaxesOverpaid(), taxReturn.getAmountOfTaxesOverpaid()) &amp;&amp;</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        Objects.equals(getTaxApplicationProcessed(), taxReturn.getTaxApplicationProcessed());</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L104">    return Objects.hash(getTaxFiller(), getCoTaxFiller(),</span>
+<span class="nc" id="L105">        getFillerContactInformation(), getTIN(), getFillingYear(),</span>
+<span class="nc" id="L106">        getDateTaxReturnFilled(), getAmountOfTaxesOwed(),</span>
+<span class="nc" id="L107">        getAmountOfTaxesOverpaid(), getTaxApplicationProcessed());</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

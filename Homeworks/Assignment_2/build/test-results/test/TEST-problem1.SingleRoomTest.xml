@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem1.SingleRoomTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-28T02:51:59" hostname="LAPTOP-UVF4RGU1" time="0.002">
+  <properties/>
+  <testcase name="inValidBookRoomUpperBound" classname="problem1.SingleRoomTest" time="0.001"/>
+  <testcase name="getMaxOccupancy" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="inValidBookRoomLowerBoundZero" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="setMaxOccupancy" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="getNumGuest" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="invalidPrice" classname="problem1.SingleRoomTest" time="0.001"/>
+  <testcase name="getPrice" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="bookRoom" classname="problem1.SingleRoomTest" time="0.0"/>
+  <testcase name="inValidBookRoomLowerBoundNeg" classname="problem1.SingleRoomTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

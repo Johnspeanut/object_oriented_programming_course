@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LinkedList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab4</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">LinkedList.java</span></div><h1>LinkedList.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+
+/**
+ * A class representing linked list.
+ */
+public class LinkedList  implements ILinkedList{
+  private Node head;
+  private int numNodes;
+
+  /**
+   * Constructor for the class.
+   */
+<span class="fc" id="L17">  public LinkedList(){</span>
+<span class="fc" id="L18">    this.head = null;</span>
+<span class="fc" id="L19">    this.numNodes = 0;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Creates an empty list.
+   * @return An empty list.
+   */
+  public static LinkedList createEmpty(){
+<span class="fc" id="L27">    return new LinkedList();</span>
+  }
+
+  /**
+   * Adds a node to the linked list.
+   * @param item The item to be added.
+   */
+  public void addNode(String item){
+<span class="fc" id="L35">    Node newNode = new Node(item,null);</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">if(this.head == null){</span>
+<span class="fc" id="L37">  this.head = newNode;</span>
+}else{
+<span class="fc" id="L39">  Node currNode = this.head;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">  while(currNode.getNextNode() != null){</span>
+<span class="fc" id="L41">    currNode = currNode.getNextNode();</span>
+  }
+<span class="fc" id="L43">  currNode.setNextNode(newNode);</span>
+}
+<span class="fc" id="L45">this.numNodes++;</span>
+<span class="fc" id="L46">  }</span>
+
+  /**
+   * Checks if the list is empty.
+   * @return True if the list is empty.
+   */
+  @Override
+  public boolean isEmpty() {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    return this.numNodes == 0;</span>
+  }
+
+  /**
+   * Gets the list size.
+   * @return size of the list.
+   */
+  @Override
+  public int size() {
+<span class="fc" id="L63">    return this.numNodes;</span>
+  }
+
+  /**
+   * Checks if the list contains an element.
+   * @param element The element to be checked.
+   * @return True if the list contains the element.
+   */
+  @Override
+  public boolean contains(String element) {
+<span class="fc" id="L73">    Node currNode = this.head;</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">    if(currNode == null){</span>
+    }
+<span class="fc bfc" id="L76" title="All 2 branches covered.">    while(currNode.getNextNode() != null){</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">      if(currNode.getItem().equals(element)){</span>
+<span class="fc" id="L78">        return true;</span>
+      }
+<span class="fc" id="L80">      currNode = currNode.getNextNode();</span>
+    }
+<span class="fc" id="L82">    return false;</span>
+  }
+
+  /**
+   * Checks if the list contains all elements of another list.
+   * @param linkedlist The linked list to be examined.
+   * @return True if the list contains all the elements of another list.
+   */
+  @Override
+  public boolean containsAll(LinkedList linkedlist) {
+<span class="fc" id="L92">    Node currNode = linkedlist.head;</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    while(currNode.getNextNode() != null){</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">      if(!this.contains(currNode.getItem())){</span>
+<span class="fc" id="L95">        return false;</span>
+      }
+<span class="fc" id="L97">      currNode = currNode.getNextNode();</span>
+    }
+<span class="fc" id="L99">    return true;</span>
+  }
+
+  /**
+   * Filters a list based on string length of elements in the list.
+   * @param length The length threshold.
+   * @return A new list that matches the requirements.
+   */
+  @Override
+  public LinkedList filterLargerThan(int length) {
+<span class="fc" id="L109">    LinkedList newLinkedList  = new LinkedList();</span>
+<span class="fc" id="L110">    Node currNode = this.head;</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">    while(currNode.getNextNode() != null){</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">      if(currNode.getItem().length() &lt;= length){</span>
+<span class="fc" id="L113">        newLinkedList.addNode(currNode.getItem());</span>
+      }
+<span class="fc" id="L115">      currNode = currNode.getNextNode();</span>
+    }
+<span class="fc" id="L117">    return newLinkedList;</span>
+  }
+
+  /**
+   * Checks if the list has duplicated elements.
+   * @return True if there is any duplicated element in the list.
+   */
+  @Override
+  public boolean hasDuplicates() {
+<span class="fc" id="L126">    ArrayList&lt;String&gt; itemList = new ArrayList(Arrays.asList(&quot;&quot;));</span>
+<span class="fc" id="L127">    Node currNode = this.head;</span>
+    while(true){
+<span class="fc bfc" id="L129" title="All 2 branches covered.">      if(itemList.contains(currNode.getItem())){ // need to edit</span>
+<span class="fc" id="L130">        return true;</span>
+      }else{
+<span class="fc" id="L132">        itemList.add(currNode.getItem());</span>
+      }
+<span class="fc bfc" id="L134" title="All 2 branches covered.">      if(currNode.getNextNode() == null){</span>
+<span class="fc" id="L135">        break;</span>
+      }
+<span class="fc" id="L137">      currNode = currNode.getNextNode();</span>
+    }
+<span class="fc" id="L139">    return false;</span>
+  }
+
+  /**
+   * Removes duplicated elements and return a new list.
+   * @return a list that does not have any duplicated element in the list.
+   */
+  @Override
+  public LinkedList removeDuplicates() {
+<span class="fc" id="L148">    ArrayList&lt;String&gt; itemList = new ArrayList(Arrays.asList(&quot;&quot;));</span>
+<span class="fc" id="L149">    LinkedList newLinkedList  = new LinkedList();</span>
+<span class="fc" id="L150">    Node currNode = this.head;</span>
+    while(true){
+<span class="fc bfc" id="L152" title="All 2 branches covered.">      if(!itemList.contains(currNode.getItem())){</span>
+<span class="fc" id="L153">        itemList.add(currNode.getItem());</span>
+<span class="fc" id="L154">        newLinkedList.addNode(currNode.getItem());</span>
+      }
+<span class="fc bfc" id="L156" title="All 2 branches covered.">      if(currNode.getNextNode() == null){</span>
+<span class="fc" id="L157">        break;</span>
+      }
+<span class="fc" id="L159">      currNode = currNode.getNextNode();</span>
+    }
+<span class="fc" id="L161">    return newLinkedList;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

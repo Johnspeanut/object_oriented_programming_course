@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InteriorService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">InteriorService.java</span></div><h1>InteriorService.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+public abstract class InteriorService extends OrdinaryService implements InteriorExtraPercentFee{
+  private int numOfPets;
+  private double extraInteriorFee;
+
+  public InteriorService(String address, enumOfSize size, boolean serviceMonthly,
+      int numPreviousServices, int numOfPets) {
+<span class="fc" id="L11">    super(address, size, serviceMonthly, numPreviousServices);</span>
+<span class="pc bpc" id="L12" title="1 of 2 branches missed.">    if(numOfPets &lt; 0){</span>
+<span class="nc" id="L13">      throw new IllegalArgumentException(&quot;The number of pets should be at least 0&quot;);</span>
+    }
+<span class="fc" id="L15">    this.numOfPets = numOfPets;</span>
+<span class="fc" id="L16">  }</span>
+
+
+  public int getNumOfPets() {
+<span class="fc" id="L20">    return numOfPets;</span>
+  }
+
+  public double getExtraInteriorFee() {
+<span class="fc" id="L24">    getDiscountPercent();</span>
+<span class="fc" id="L25">    interiorExtraPercentFee();</span>
+<span class="fc" id="L26">    return extraInteriorFee;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L31" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L32">      return true;</span>
+    }
+<span class="pc bpc" id="L34" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L35">      return false;</span>
+    }
+<span class="fc bfc" id="L37" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L38">      return false;</span>
+    }
+<span class="fc" id="L40">    InteriorService that = (InteriorService) o;</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">    return numOfPets == that.numOfPets;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L46">    return Objects.hash(super.hashCode(), numOfPets);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L51">    return &quot;InteriorService{&quot; +</span>
+<span class="fc" id="L52">        &quot;numOfPets=&quot; + numOfPets + super.toString() +</span>
+        '}';
+  }
+
+  @Override
+  public void interiorExtraPercentFee() {
+<span class="pc bpc" id="L58" title="1 of 4 branches missed.">    if(getNumOfPets() == 1 || getNumOfPets() == 2){</span>
+<span class="fc" id="L59">      this.extraInteriorFee = 0.05;</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">    }else if(getNumOfPets() &gt;= 3){</span>
+<span class="fc" id="L61">      this.extraInteriorFee = 0.07;</span>
+    }
+<span class="fc" id="L63">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

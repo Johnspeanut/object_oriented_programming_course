@@ -1,0 +1,12 @@
+-classpath 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\build\\classes\\java\\main;G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\build\\resources\\main'
+-d 'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\build\\docs\\javadoc'
+-doctitle 'Assignment_4 1.0-SNAPSHOT API'
+-notimestamp 
+-quiet 
+-windowtitle 'Assignment_4 1.0-SNAPSHOT API'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_1\\Course.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_1\\CourseCatalog.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_1\\IcourseCatalog.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_1\\Node.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_2\\ISet.java'
+'G:\\2020NEU\\CS5004\\CS5004\\Qiong_Peng_repository\\Homeworks\\Assignment_4\\src\\main\\java\\problem_2\\Set.java'

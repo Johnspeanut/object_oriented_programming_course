@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="view.OptionTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:08" hostname="LAPTOP-UVF4RGU1" time="0.005">
+  <properties/>
+  <testcase name="compareTo" classname="view.OptionTest" time="0.0"/>
+  <testcase name="getArg" classname="view.OptionTest" time="0.0"/>
+  <testcase name="isRequired" classname="view.OptionTest" time="0.001"/>
+  <testcase name="testToString" classname="view.OptionTest" time="0.0"/>
+  <testcase name="setArg" classname="view.OptionTest" time="0.0"/>
+  <testcase name="getOptName" classname="view.OptionTest" time="0.0"/>
+  <testcase name="getPrerequisiteOption" classname="view.OptionTest" time="0.0"/>
+  <testcase name="testHashCode" classname="view.OptionTest" time="0.0"/>
+  <testcase name="isNeedArg" classname="view.OptionTest" time="0.0"/>
+  <testcase name="testEquals" classname="view.OptionTest" time="0.0"/>
+  <testcase name="getRequiredAttachedOpName" classname="view.OptionTest" time="0.001"/>
+  <testcase name="isConditionalRequired" classname="view.OptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

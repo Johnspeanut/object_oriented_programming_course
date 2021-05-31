@@ -1,0 +1,10 @@
+problem1/RiceTest.java
+ problem1.RiceTest
+problem1/MeatTest.java
+ problem1.MeatTest
+problem1/PastaTest.java
+ problem1.PastaTest
+problem1/FruitTest.java
+ problem1.FruitTest
+problem1/VegetableTest.java
+ problem1.VegetableTest

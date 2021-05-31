@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.MailItemTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-28T02:51:59" hostname="LAPTOP-UVF4RGU1" time="0.003">
+  <properties/>
+  <testcase name="invalidEquals" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="invalidInches" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="getDepthItem" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="getWidthItem" classname="problem2.MailItemTest" time="0.001"/>
+  <testcase name="assertItemEquals" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="getRecipient" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="assertItemUnequals" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="getHeightItem" classname="problem2.MailItemTest" time="0.0"/>
+  <testcase name="validEquals" classname="problem2.MailItemTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

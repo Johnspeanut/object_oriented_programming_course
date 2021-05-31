@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_2.LinkedListTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-02-11T06:59:15" hostname="LAPTOP-UVF4RGU1" time="0.004">
+  <properties/>
+  <testcase name="addNode" classname="problem_2.LinkedListTest" time="0.001"/>
+  <testcase name="hasDuplicates" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="contains" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="createEmpty" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="removeDuplicates" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="size" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="containsAll" classname="problem_2.LinkedListTest" time="0.0"/>
+  <testcase name="filterLargerThan" classname="problem_2.LinkedListTest" time="0.001"/>
+  <testcase name="isEmpty" classname="problem_2.LinkedListTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

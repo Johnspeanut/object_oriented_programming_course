@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CommandLine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.view</a> &gt; <span class="el_source">CommandLine.java</span></div><h1>CommandLine.java</h1><pre class="source lang-java linenums">package todoApplication.view;
+
+import java.util.ArrayList;
+
+/**
+ * Represents list of arguments parsed against a Options descriptor
+ */
+public class CommandLine {
+<span class="fc" id="L9">  ArrayList&lt;Option&gt; validOptions = new ArrayList&lt;&gt;();</span>
+
+  /**
+   * Constructor
+   */
+<span class="fc" id="L14">  public CommandLine(){</span>
+<span class="fc" id="L15">  }</span>
+
+  /**
+   * Gets file path
+   * @return file path
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getFilePath() throws ParseException {
+<span class="fc" id="L23">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--csv-file&quot;);</span>
+<span class="fc" id="L24">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--add-todo&quot; needs to be executed
+   * @return true if needed.
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean isAddTodo() throws ParseException {
+<span class="fc" id="L33">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--add-todo&quot;);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L35">      return true;</span>
+    }
+<span class="nc" id="L37">    return false;</span>
+  }
+
+  /**
+   * Gets the new todo description
+   * @return the description of the new todo
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String todoDescription() throws ParseException {
+<span class="fc" id="L46">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--todo-text&quot;);</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">    if(option == null){</span>
+<span class="nc" id="L48">      throw new ParseException(&quot;The option does not exist&quot;);</span>
+    }
+<span class="fc" id="L50">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--completed&quot; is turn on.
+   * @return ture if it is turn on.
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasCompleted() throws ParseException {
+<span class="fc" id="L59">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--completed&quot;);</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L61">      return true;</span>
+    }
+<span class="nc" id="L63">    return false;</span>
+  }
+
+  /**
+   * check if &quot;--due&quot; is turn on
+   * @return ture if it is turn on.
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasDueDate() throws ParseException {
+<span class="fc" id="L72">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--due&quot;);</span>
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L74">      return true;</span>
+    }
+<span class="nc" id="L76">    return false;</span>
+  }
+
+  /**
+   * Gets the due date
+   * @return the due date
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getDueDate() throws ParseException {
+<span class="fc" id="L85">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--due&quot;);</span>
+<span class="fc" id="L86">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--priority&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasPriority() throws ParseException {
+<span class="fc" id="L95">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--priority&quot;);</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L97">      return true;</span>
+    }
+<span class="nc" id="L99">    return false;</span>
+  }
+
+  /**
+   * Gets priority value
+   * @return priority value
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getPriorityValue() throws ParseException {
+<span class="fc" id="L108">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--priority&quot;);</span>
+<span class="fc" id="L109">    return option.getArg();</span>
+  }
+
+  /**
+   * check if &quot;--category&quot; turns on
+   * @return ture if &quot;--category&quot; turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasCategory() throws ParseException {
+<span class="fc" id="L118">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--category&quot;);</span>
+<span class="pc bpc" id="L119" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L120">      return true;</span>
+    }
+<span class="nc" id="L122">    return false;</span>
+  }
+
+  /**
+   * Gets the category value
+   * @return the category value
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getCategoryValue() throws ParseException {
+<span class="fc" id="L131">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--category&quot;);</span>
+<span class="fc" id="L132">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--complete--todo&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasUpdateTodo() throws ParseException {
+<span class="fc" id="L141">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--complete-todo&quot;);</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L143">      return true;</span>
+    }
+<span class="nc" id="L145">    return false;</span>
+  }
+
+  /**
+   * Check if &quot;--complete-todo&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getUpdateTodoID() throws ParseException {
+<span class="fc" id="L154">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--complete-todo&quot;);</span>
+<span class="fc" id="L155">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--display&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasDisplay() throws ParseException {
+<span class="fc" id="L164">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--display&quot;);</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L166">      return true;</span>
+    }
+<span class="nc" id="L168">    return false;</span>
+  }
+
+  /**
+   * check if &quot;--show-incomplete&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasShowIncomplete() throws ParseException {
+<span class="fc" id="L177">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--show-incomplete&quot;);</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L179">      return true;</span>
+    }
+<span class="nc" id="L181">    return false;</span>
+  }
+
+  /**
+   * Check if &quot;--show-category&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasShowCategory() throws ParseException {
+<span class="fc" id="L190">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--show-category&quot;);</span>
+<span class="pc bpc" id="L191" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="nc" id="L192">      return true;</span>
+    }
+<span class="fc" id="L194">    return false;</span>
+  }
+
+  /**
+   * Gets the category value that shown Todo should have.
+   * @return the category value
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public String getShowCategoryValue() throws ParseException {
+<span class="fc" id="L203">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--show-category&quot;);</span>
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">    if(option == null){</span>
+<span class="fc" id="L205">      return null;</span>
+    }
+<span class="nc" id="L207">    return option.getArg();</span>
+  }
+
+  /**
+   * Check if &quot;--sort-by-date&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasSortByDate() throws ParseException {
+<span class="fc" id="L216">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--sort-by-date&quot;);</span>
+<span class="pc bpc" id="L217" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="nc" id="L218">      return true;</span>
+    }
+<span class="fc" id="L220">    return false;</span>
+  }
+
+  /**
+   * Check if &quot;--sort-by-priority&quot; turns on
+   * @return true if it turns on
+   * @throws ParseException throw parse exception otherwise.
+   */
+  public boolean hasSortByPriority() throws ParseException {
+<span class="fc" id="L229">    Option option = Options.findOptionBasedOnString(this.validOptions, &quot;--sort-by-priority&quot;);</span>
+<span class="pc bpc" id="L230" title="1 of 2 branches missed.">    if(option != null){</span>
+<span class="fc" id="L231">      return true;</span>
+    }
+<span class="nc" id="L233">    return false;</span>
+  }
+
+  /**
+   * Get a list of valid options
+   * @return a list of valid options
+   */
+  public ArrayList&lt;Option&gt; getValidOptions() {
+<span class="fc" id="L241">    return validOptions;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

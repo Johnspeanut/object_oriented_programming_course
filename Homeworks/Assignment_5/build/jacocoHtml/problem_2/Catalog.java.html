@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Catalog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_2</a> &gt; <span class="el_source">Catalog.java</span></div><h1>Catalog.java</h1><pre class="source lang-java linenums">package problem_2;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * A class presenting library catalog.
+ * The itemCollection does not allow contain duplicated items.
+ */
+public class Catalog {
+<span class="fc" id="L11">  private ArrayList&lt;ILibrary&gt; itemCollection = new ArrayList&lt;ILibrary&gt;();</span>
+
+  /**
+   * Constructor for the Catalog class object with no parameter.
+   */
+<span class="fc" id="L16">  public Catalog() {</span>
+<span class="fc" id="L17">  }</span>
+
+  /**
+   * Overload constructor for the Catalog class object with a parameter, which is the collection.
+   * @param itemCollection The collection of items.
+   */
+<span class="fc" id="L23">  public Catalog(ArrayList&lt;ILibrary&gt; itemCollection) {</span>
+<span class="fc" id="L24">    this.itemCollection = itemCollection;</span>
+<span class="fc" id="L25">  }</span>
+
+  /**
+   * Gets the collection of items
+   * @return the collection of items.
+   */
+  public ArrayList&lt;ILibrary&gt; getItemCollection() {
+<span class="fc" id="L32">    return itemCollection;</span>
+  }
+
+  /**
+   * Overload method to check if an item in the collection. Input is ILibrary.
+   * @param item Ilibrary item to be checked.
+   * @return true if the catalog contains the item.
+   */
+  public boolean contains(ILibrary item){
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    if(itemCollection.isEmpty()){</span>
+<span class="fc" id="L42">      return false;</span>
+    }
+<span class="fc bfc" id="L44" title="All 2 branches covered.">    for(ILibrary element:this.itemCollection){</span>
+<span class="fc bfc" id="L45" title="All 2 branches covered.">      if(element.equals(item)){</span>
+<span class="fc" id="L46">        return true;</span>
+      }
+<span class="fc" id="L48">    }</span>
+<span class="fc" id="L49">    return false;</span>
+  }
+
+  /**
+   * Overload method to check if there is item with a specific title in the coolection.
+   * Input is title.
+   * @param title The title of book or music to be checked.
+   * @return true if the catalog contains the item.
+   */
+  public boolean contains(String title){
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">    if(itemCollection.isEmpty()){</span>
+<span class="nc" id="L60">      return false;</span>
+    }
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">    for(ILibrary element:this.itemCollection){</span>
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">      if(element.getTitle().equals(title)){</span>
+<span class="fc" id="L64">        return true;</span>
+      }
+<span class="nc" id="L66">    }</span>
+<span class="nc" id="L67">    return false;</span>
+  }
+
+  /**
+   * Adds an item to the collection.
+   * If there a duplicated item in the collection, cannot add it.
+   * @param item the item to be added.
+   * @return true if the adding is successful.
+   */
+  public boolean addItem(ILibrary item){
+<span class="pc bpc" id="L77" title="1 of 2 branches missed.">    if(!this.contains(item)){</span>
+<span class="fc" id="L78">      this.itemCollection.add(item);</span>
+<span class="fc" id="L79">      return true;</span>
+    }
+<span class="nc" id="L81">    return false;</span>
+  }
+
+  /**
+   * removes an item from the catalog collection.
+   * @param item The item to be removed.
+   * @return true if removed successfully.
+   */
+  public boolean removeItem(ILibrary item){
+<span class="fc bfc" id="L90" title="All 2 branches covered.">    if(this.contains(item)){</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">      for(ILibrary element:this.itemCollection){</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        if(element.equals(item)){</span>
+<span class="fc" id="L93">this.itemCollection.remove(element);</span>
+        }
+<span class="fc" id="L95">      }</span>
+<span class="fc" id="L96">      return true;</span>
+    }else{
+<span class="fc" id="L98">      throw new IllegalArgumentException(&quot;The item is not in the collection&quot;);</span>
+    }
+  }
+
+  /**
+   * Update item based on Title.
+   * @param item An item with new information to be updated
+   * @return true if updated successfully.
+   */
+  public boolean updateItem(ILibrary item){
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">      for(ILibrary element:this.itemCollection){</span>
+<span class="fc" id="L109">        int i = 0;</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if(item.getTitle().equals(element.getTitle())){</span>
+<span class="fc" id="L111">          this.itemCollection.set(i,item);</span>
+<span class="fc" id="L112">          return true;</span>
+        }
+<span class="nc" id="L114">        i++;</span>
+<span class="nc" id="L115">      }</span>
+<span class="nc" id="L116">      return false;</span>
+    }
+
+  /**
+   * Search items that have a keyword in their title.
+   * @param keyword The keyword to be checked.
+   * @return A list that includes items having the keyword in their titles.
+   */
+  public ArrayList&lt;ILibrary&gt; search(String keyword){
+<span class="fc" id="L125">    ArrayList&lt;ILibrary&gt; newList = new ArrayList&lt;ILibrary&gt;();</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">    for(ILibrary element:this.itemCollection){</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">      if(element.search(keyword)){</span>
+<span class="fc" id="L128">        newList.add(element);</span>
+      }
+<span class="fc" id="L130">    }</span>
+<span class="fc" id="L131">    return newList;</span>
+  }
+
+  /**
+   * Overload search method.
+   * Search items that have the author.
+   * @param author The author to be checked.
+   * @return A list that includes items with the author.
+   */
+  public ArrayList&lt;ILibrary&gt; search(Author author){
+<span class="fc" id="L141">    ArrayList&lt;ILibrary&gt; newList = new ArrayList&lt;ILibrary&gt;();</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">    for(ILibrary element:this.itemCollection){</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">      if(element.search(author)){</span>
+<span class="fc" id="L144">        newList.add(element);</span>
+      }
+<span class="fc" id="L146">    }</span>
+<span class="fc" id="L147">    return newList;</span>
+  }
+
+  /**
+   * Overload search method.
+   * Search items that have the artist.
+   * @param artist The artist to be checked.
+   * @return A list that includes items with the artist.
+   */
+  public ArrayList&lt;ILibrary&gt; search(RecordingArtist artist){
+<span class="fc" id="L157">    ArrayList&lt;ILibrary&gt; newList = new ArrayList&lt;ILibrary&gt;();</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">    for(ILibrary element:this.itemCollection){</span>
+<span class="fc bfc" id="L159" title="All 2 branches covered.">      if(element.search(artist)){</span>
+<span class="fc" id="L160">        newList.add(element);</span>
+      }
+<span class="fc" id="L162">    }</span>
+<span class="fc" id="L163">    return newList;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L173" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L174">      return true;</span>
+    }
+<span class="fc bfc" id="L176" title="All 2 branches covered.">    if (!(o instanceof Catalog)) {</span>
+<span class="fc" id="L177">      return false;</span>
+    }
+<span class="fc" id="L179">    Catalog catalog = (Catalog) o;</span>
+<span class="fc bfc" id="L180" title="All 2 branches covered.">    if(this.itemCollection.size() != catalog.getItemCollection().size()){</span>
+<span class="fc" id="L181">      return false;</span>
+    }
+<span class="fc bfc" id="L183" title="All 2 branches covered.">    for(int i = 0; i &lt; this.itemCollection.size(); i++){</span>
+<span class="pc bpc" id="L184" title="1 of 2 branches missed.">      if(!this.itemCollection.get(i).equals(catalog.itemCollection.get(i))){</span>
+<span class="nc" id="L185">        return false;</span>
+      }
+    }
+<span class="fc" id="L188">    return true;</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L197">    return Objects.hash(itemCollection);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L206">    return &quot;Catalog{&quot; +</span>
+        &quot;itemCollection=&quot; + itemCollection +
+        '}';
+  }
+}
+
+
+
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

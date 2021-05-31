@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Donation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_1</a> &gt; <span class="el_source">Donation.java</span></div><h1>Donation.java</h1><pre class="source lang-java linenums">package problem_1;
+
+import java.time.LocalDateTime;
+
+/**
+ * An abstract class representing Donation which implements ICalDonation.
+ */
+public abstract class Donation implements ICalDonation{
+float amount;
+LocalDateTime date;
+
+  /**
+   * Constructor for the Donation class.
+   * @param amount Amount of donation.
+   * @param date Processing date of the donation.
+   */
+<span class="fc" id="L17">  public Donation(float amount, LocalDateTime date) {</span>
+<span class="fc" id="L18">    this.amount = amount;</span>
+<span class="fc" id="L19">    this.date = date;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Overload constructor without parameter.
+   */
+<span class="fc" id="L25">  public Donation() {</span>
+<span class="fc" id="L26">  }</span>
+
+  /**
+   * Gets amount of the donation.
+   * @return amount of the donation.
+   */
+  public float getAmount() {
+<span class="fc" id="L33">    return amount;</span>
+  }
+
+  /**
+   * Gets the date of the donation.
+   * @return the date of the donation.
+   */
+  public LocalDateTime getDate() {
+<span class="fc" id="L41">    return date;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

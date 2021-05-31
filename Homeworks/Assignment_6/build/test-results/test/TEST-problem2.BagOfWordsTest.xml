@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem2.BagOfWordsTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-02-27T08:12:39" hostname="LAPTOP-UVF4RGU1" time="0.004">
+  <properties/>
+  <testcase name="getTop" classname="problem2.BagOfWordsTest" time="0.002"/>
+  <testcase name="testToString" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="contains" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="add" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="size" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <testcase name="isEmpty" classname="problem2.BagOfWordsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

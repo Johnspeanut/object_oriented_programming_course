@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReadCSV.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HW9</a> &gt; <a href="index.source.html" class="el_package">todoApplication.model</a> &gt; <span class="el_source">ReadCSV.java</span></div><h1>ReadCSV.java</h1><pre class="source lang-java linenums">package todoApplication.model;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+<span class="nc" id="L10">public class ReadCSV {</span>
+
+    /**
+     * get the file path to process the CSV file
+     * skip the first line and start reading from the second line
+     * for each line, for each element split by comma, and make each todo as a single list
+     * then add each todo to this.todoList for future use.
+     * @param fileName the file name which stores the data
+     * @return a list of string lists
+     * @throws IOException throw IO exception if having processing error.
+     */
+    public static ArrayList&lt;ArrayList&lt;String&gt;&gt; readFile(String fileName) throws IOException {
+<span class="nc" id="L22">        ArrayList&lt;ArrayList&lt;String&gt;&gt; todoList = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L23">        try(BufferedReader inputFile = new BufferedReader(new FileReader(fileName))){</span>
+<span class="nc" id="L24">            String keyNames = inputFile.readLine(); // read the first line</span>
+<span class="nc" id="L25">            String[] header = keyNames.split(&quot;,(?=(?:[^\\\&quot;]*\\\&quot;[^\\\&quot;]*\\\&quot;)*[^\\\&quot;]*$)&quot;);</span>
+
+            String line;
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            while ((line = inputFile.readLine()) != null) {</span>
+<span class="nc" id="L29">                String[] lineParts = line.split(&quot;,(?=(?:[^\\\&quot;]*\\\&quot;[^\\\&quot;]*\\\&quot;)*[^\\\&quot;]*$)&quot;);</span>
+<span class="nc" id="L30">                int arraySize = lineParts.length;</span>
+<span class="nc" id="L31">                ArrayList&lt;String&gt; todo = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                for(int i = 0; i &lt; arraySize; i++){</span>
+<span class="nc" id="L33">                    String singleCell = lineParts[i]. replaceAll(&quot;^\&quot;+|\&quot;+$&quot;, &quot;&quot;);</span>
+<span class="nc" id="L34">                    todo.add(singleCell);</span>
+                }
+<span class="nc" id="L36">                todoList.add(todo);</span>
+<span class="nc" id="L37">            }</span>
+<span class="nc" id="L38">            return todoList;</span>
+<span class="nc" id="L39">        }catch (FileNotFoundException fileNotFoundException) {</span>
+<span class="nc" id="L40">             throw new FileNotFoundException(&quot;file not found&quot;);</span>
+<span class="nc" id="L41">        } catch (IOException ioException) {</span>
+<span class="nc" id="L42">            throw new IOException(&quot;IO exception&quot;);</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Time.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Time.java</span></div><h1>Time.java</h1><pre class="source lang-java linenums">package problem2;
+
+import java.util.Objects;
+
+/**
+ * Time is a simple object that has specific hour, minute, and second.
+ * */
+public class Time {
+    private int hour;
+    private int minute;
+    private int second;
+
+    /**
+     * Constructor that creates a new Time object with the specified hour, minute, and second.
+     * @param hour - hour of the new Time object.
+     * @param minute - minute of the new Time object.
+     * @param second - second of the new Time object.
+     * */
+<span class="fc" id="L19">    public Time(int hour, int minute, int second){</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">        if(timeValid(hour,minute,second)){</span>
+<span class="fc" id="L21">            this.hour = hour;</span>
+<span class="fc" id="L22">            this.minute = minute;</span>
+<span class="fc" id="L23">            this.second = second;</span>
+        }
+<span class="fc" id="L25">    }</span>
+
+    /**
+     * Helper method to valid the input of hour, minute, and second.
+     * @param hour - hour of the new Time object.
+     * @param minute - minute of the new Time object.
+     * @param second - second of the new Time object.
+     * @return true if inputs are valid.
+     * */
+    private boolean timeValid(int hour, int minute, int second){
+<span class="fc" id="L35">        final int minHour = 0, minMinute = 0, minSecond = 0;</span>
+<span class="fc" id="L36">        final int maxHour = 23, maxMinute = 59, maxSecond = 59;</span>
+<span class="pc bpc" id="L37" title="6 of 12 branches missed.">        if(hour &gt;= minHour &amp;&amp; hour &lt;= maxHour &amp;&amp; minute &gt;= minMinute &amp;&amp; minute &lt;= maxMinute &amp;&amp; second &gt;= minSecond</span>
+                &amp;&amp; second &lt;= maxSecond){
+<span class="fc" id="L39">            return true;</span>
+        }
+<span class="nc" id="L41">        return false;</span>
+    }
+
+    /**
+     * Returns the hour of the Time.
+     * @return the hour of the Time.
+     * */
+    public int getHour() {
+<span class="fc" id="L49">        return hour;</span>
+    }
+
+    /**
+     * Sets the hour of the Time.
+     * @param hour - Set the hour of the Time object.
+     * */
+    public void setHour(int hour) {
+<span class="fc" id="L57">        this.hour = hour;</span>
+<span class="fc" id="L58">    }</span>
+
+    /**
+     * Returns the minute of the Time.
+     * @return the minute of the Time.
+     * */
+    public int getMinute() {
+<span class="fc" id="L65">        return minute;</span>
+    }
+
+    /**
+     * Sets the minute of the Time.
+     * @param minute - Set the minute of the Time object.
+     * */
+    public void setMinute(int minute) {
+<span class="fc" id="L73">        this.minute = minute;</span>
+<span class="fc" id="L74">    }</span>
+
+    /**
+     * Returns the second of the Time.
+     * @return the second of the Time.
+     * */
+    public int getSecond() {
+<span class="fc" id="L81">        return second;</span>
+    }
+
+    /**
+     * Sets the second of the Time.
+     * @param second - Set the second of the Time object.
+     * */
+    public void setSecond(int second) {
+<span class="fc" id="L89">        this.second = second;</span>
+<span class="fc" id="L90">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

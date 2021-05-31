@@ -1,0 +1,12 @@
+problem2/Name.java
+ problem2.Name
+problem2/Runner.java
+ problem2.Runner
+problem2/Athlete.java
+ problem2.Athlete
+problem1/Author.java
+ problem1.Author
+problem2/BaseballPlayer.java
+ problem2.BaseballPlayer
+equality_in_java/Posn.java
+ equality_in_java.Posn

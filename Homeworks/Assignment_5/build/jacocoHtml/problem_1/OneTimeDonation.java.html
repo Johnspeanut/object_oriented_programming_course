@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OneTimeDonation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_1</a> &gt; <span class="el_source">OneTimeDonation.java</span></div><h1>OneTimeDonation.java</h1><pre class="source lang-java linenums">package problem_1;
+
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+/**
+ * A concrete class representing one-time donation.
+ */
+public class OneTimeDonation extends Donation{
+
+  /**
+   * Construcotr for the OneTimeDonation class object.
+   * @param amount Amount of the donation.
+   * @param date The processing date of the donation.
+   */
+  public OneTimeDonation(float amount, LocalDateTime date) {
+<span class="fc" id="L17">    super(amount, date);</span>
+<span class="fc" id="L18">  }</span>
+
+  /**
+   * Calculate the donation amount in a year.
+   * @param year The year within which the donation amount is.
+   * @return The amount of donation in that year.
+   */
+  @Override
+  public float calDonation(int year) {
+<span class="fc bfc" id="L27" title="All 2 branches covered.">    if(this.getDate().getYear() == year){</span>
+<span class="fc" id="L28">      return this.getAmount();</span>
+    }
+<span class="fc" id="L30">    return 0;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L41">      return true;</span>
+    }
+<span class="fc bfc" id="L43" title="All 2 branches covered.">    if (!(o instanceof OneTimeDonation)) {</span>
+<span class="fc" id="L44">      return false;</span>
+    }
+<span class="fc" id="L46">    OneTimeDonation that = (OneTimeDonation) o;</span>
+<span class="fc bfc" id="L47" title="All 4 branches covered.">    return this.amount == that.amount &amp;&amp; this.date.equals(that.date);</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L56">    return Objects.hash(this.amount,this.date);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L65">    return &quot;OneTimeDonation{&quot; +</span>
+        &quot;amount=&quot; + amount +
+        &quot;, date=&quot; + date +
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="todoApplication.control.DueComparatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:07" hostname="LAPTOP-UVF4RGU1" time="0.002">
+  <properties/>
+  <testcase name="compare" classname="todoApplication.control.DueComparatorTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

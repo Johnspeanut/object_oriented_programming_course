@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="view.CommandLineParseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-04-23T06:12:08" hostname="LAPTOP-UVF4RGU1" time="0.003">
+  <properties/>
+  <testcase name="parseEmptyCommand" classname="view.CommandLineParseTest" time="0.001"/>
+  <testcase name="parseEmptyCommand1" classname="view.CommandLineParseTest" time="0.0"/>
+  <testcase name="parse" classname="view.CommandLineParseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

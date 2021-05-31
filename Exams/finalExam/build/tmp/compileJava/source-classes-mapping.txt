@@ -1,0 +1,24 @@
+problem3/Destination.java
+ problem3.Destination
+problem1/Course.java
+ problem1.Course
+problem3/Traveler.java
+ problem3.Traveler
+problem2/Destination.java
+ problem2.Destination
+problem1/Student.java
+ problem1.Student
+problem2/TravelerIterator.java
+ problem2.TravelerIterator
+problem3/StringProcessor1.java
+ problem3.StringProcessor1
+problem2/Traveler.java
+ problem2.Traveler
+problem1/StudentProcessor.java
+ problem1.StudentProcessor
+problem3/StringResultPack.java
+ problem3.StringResultPack
+problem2/TotalDistanceComparator.java
+ problem2.TotalDistanceComparator
+problem3/TripRecommender.java
+ problem3.TripRecommender

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>IndividualFiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midtermExam.p1</a> &gt; <span class="el_source">IndividualFiler.java</span></div><h1>IndividualFiler.java</h1><pre class="source lang-java linenums">package midtermExam.p1;
+
+import java.util.Objects;
+
+/**
+ * A concrete class representing individual tax filer.
+ */
+public class IndividualFiler extends TaxFile {
+  private static final double RETIRE_HEALTH_FACTOR = 0.7;
+  private static final double STUDENT_LOAN_DEDUCTION_UPPER_CUTOFF = 75000;
+  private static final double STUDENT_LOAN_DEDUCTION_LOWER_CUTOFF = 5000;
+  private static final double EDUCATION_DEDUCTION = 1500;
+  private static final double TAXABLE_INCOME_CUTOFF = 55000;
+
+
+  public IndividualFiler(String taxID, ContactInfo contactInfo, Double lastYearEarnings,
+      Double totalIncomeTaxPaid, Double mortgageInterestPaid, Double studentLoadPaid,
+      Double contributionRetirement, Double contributionHealth, Double charitableDonation) {
+<span class="fc" id="L19">    super(taxID, contactInfo, lastYearEarnings, totalIncomeTaxPaid, mortgageInterestPaid,</span>
+        studentLoadPaid, contributionRetirement, contributionHealth, charitableDonation);
+<span class="fc" id="L21">  }</span>
+
+  protected Double estimateRetireDeduction(){
+<span class="fc" id="L24">    return (this.getContributionHealth() + this.getContributionRetirement()) * RETIRE_HEALTH_FACTOR;</span>
+  }
+
+  protected Double estimateStudentDeduction(){
+<span class="pc bpc" id="L28" title="2 of 4 branches missed.">    if(this.studentLoadPaid &lt; STUDENT_LOAN_DEDUCTION_UPPER_CUTOFF &amp;&amp; this.studentLoadPaid &gt; STUDENT_LOAN_DEDUCTION_LOWER_CUTOFF){</span>
+<span class="fc" id="L29">      return EDUCATION_DEDUCTION;</span>
+    }
+<span class="nc" id="L31">    return 0.0;</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L36">    return &quot;IndividualFiler{&quot; +</span>
+        &quot;taxID='&quot; + taxID + '\'' +
+        &quot;, contactInfo=&quot; + contactInfo +
+        &quot;, lastYearEarnings=&quot; + lastYearEarnings +
+        &quot;, totalIncomeTaxPaid=&quot; + totalIncomeTaxPaid +
+        &quot;, mortgageInterestPaid=&quot; + mortgageInterestPaid +
+        &quot;, studentLoadPaid=&quot; + studentLoadPaid +
+        &quot;, contributionRetirement=&quot; + contributionRetirement +
+        &quot;, contributionHealth=&quot; + contributionHealth +
+        &quot;, charitableDonation=&quot; + charitableDonation +
+        '}';
+  }
+
+  /**
+   * Method to calculate tax amount.
+   * @return tax amount.
+   */
+  @Override
+  public Double calculateTax(){
+<span class="fc" id="L55">    double taxableIncome = this.estimateBasicTaxableIncome() - this.estimateDonationDeduction() - this.estimateMortgagePropertyDeduction() - this.estimateRetireDeduction() - this.estimateStudentDeduction();</span>
+    double taxableFactor;
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">    if(taxableIncome &lt; TAXABLE_INCOME_CUTOFF){</span>
+<span class="nc" id="L58">      taxableFactor = 0.15;</span>
+    }else{
+<span class="fc" id="L60">      taxableFactor = 0.19;</span>
+    }
+<span class="fc" id="L62">    return taxableIncome * taxableFactor;</span>
+ }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

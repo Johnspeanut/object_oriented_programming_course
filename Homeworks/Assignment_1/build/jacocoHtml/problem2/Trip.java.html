@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Trip.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_1</a> &gt; <a href="index.source.html" class="el_package">problem2</a> &gt; <span class="el_source">Trip.java</span></div><h1>Trip.java</h1><pre class="source lang-java linenums">package problem2;
+
+import java.util.Objects;
+
+/**
+ * Trip class has start location, end location, start time, and end time.
+ * */
+public class Trip {
+    private String startingLocation;
+    private String endLocation;
+    private Time startTime;
+    private Time endTime;
+    private static final int SEXAGESIMAL = 60;
+
+    /**
+     * Constructor that creates a new trip object with the specified start location, end location, start time,
+     * and end time.
+     * @param startingLocation - start location of the new Trip object.
+     * @param endLocation - end location of the new Trip object.
+     * @param startTime - start time of the new Trip.
+     * @param endTime - end time of the new Trip.
+     * */
+<span class="fc" id="L23">    public Trip(String startingLocation, String endLocation, Time startTime, Time endTime){</span>
+<span class="fc" id="L24">        this.startingLocation = startingLocation;</span>
+<span class="fc" id="L25">        this.endLocation = endLocation;</span>
+<span class="fc" id="L26">        this.startTime = startTime;</span>
+<span class="fc" id="L27">        this.endTime = endTime;</span>
+<span class="fc" id="L28">    }</span>
+
+    /**
+     * Returns the starting location of the Trip.
+     * @return the starting location of the Trip.
+     * */
+    public String getStartingLocation() {
+<span class="fc" id="L35">        return startingLocation;</span>
+    }
+
+    /**
+     * Returns the end location of the Trip.
+     * @return the end location of the Trip.
+     * */
+    public String getEndLocation() {
+<span class="fc" id="L43">        return endLocation;</span>
+    }
+
+    /**
+     * Returns the starting time of the Trip.
+     * @return the starting time of the Trip.
+     * */
+    public Time getStartTime() {
+<span class="fc" id="L51">        return startTime;</span>
+    }
+
+    /**
+     * Returns the end time of the Trip.
+     * @return the end time of the Trip.
+     * */
+    public Time getEndTime() {
+<span class="fc" id="L59">        return endTime;</span>
+    }
+
+    /**
+     * Sets the start location of the Trip.
+     * @param startingLocation - Set the starting location of the Trip object.
+     * */
+    public void setStartingLocation(String startingLocation) {
+<span class="fc" id="L67">        this.startingLocation = startingLocation;</span>
+<span class="fc" id="L68">    }</span>
+
+    /**
+     * Sets the end location of the Trip.
+     * @param endLocation - Set the ending location of the Trip object.
+     * */
+    public void setEndLocation(String endLocation) {
+<span class="fc" id="L75">        this.endLocation = endLocation;</span>
+<span class="fc" id="L76">    }</span>
+
+    /**
+     * Sets the start time of the Trip.
+     * @param startTime - Set the start time of the Trip object.
+     * */
+    public void setStartTime(Time startTime) {
+<span class="fc" id="L83">        this.startTime = startTime;</span>
+<span class="fc" id="L84">    }</span>
+
+    /**
+     * Sets the end time of the Trip.
+     * @param endTime - Set the end time of the Trip object.
+     * */
+    public void setEndTime(Time endTime) {
+<span class="fc" id="L91">        this.endTime = endTime;</span>
+<span class="fc" id="L92">    }</span>
+
+    /**
+     * Returns the total time of the Trip.
+     * @return the total time of the Trip.
+     * */
+    public Time getDuration(){
+<span class="fc" id="L99">        Time endTime = this.getEndTime();</span>
+<span class="fc" id="L100">        Time startTime = this.getStartTime();</span>
+<span class="fc" id="L101">        int durHour = endTime.getHour() - startTime.getHour();</span>
+<span class="fc" id="L102">        int durMinute = timeDifference(endTime.getMinute(),startTime.getMinute());</span>
+<span class="fc" id="L103">        int durSecond = timeDifference(endTime.getSecond(),startTime.getSecond());</span>
+<span class="fc" id="L104">        return new Time(durHour, durMinute, durSecond);</span>
+    }
+
+    /**
+     * helper method.
+     * @param start - the start time.
+     * @param end - the end time.
+     * Returns the time difference.
+     * @return the time difference.
+     * */
+    private int timeDifference(int start, int end){
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (end &gt; start){</span>
+<span class="fc" id="L116">            return end - start;</span>
+        }else{
+<span class="fc" id="L118">            return end + SEXAGESIMAL - start;</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

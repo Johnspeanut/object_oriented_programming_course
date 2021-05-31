@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Musician.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab4</a> &gt; <a href="index.source.html" class="el_package">problem_1</a> &gt; <span class="el_source">Musician.java</span></div><h1>Musician.java</h1><pre class="source lang-java linenums">package problem_1;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * A concrete class representing musician.
+ * @author  John Peng
+ * @version v1.0
+ */
+public class Musician extends Artist{
+  private String recordingCompany;
+  private String lastRecordAlbum;
+
+  /**
+   * Constructor for the class.
+   * @param name Name of the artist.
+   * @param age Age of the artist.
+   * @param genres Genre that the artist falls in.
+   * @param awards The array list including awards.
+   * @param recordingCompany The recording company.
+   * @param lastRecordAlbum The last record album name.
+   */
+  public Musician(String name, int age, String genres, ArrayList&lt;String&gt; awards,
+      String recordingCompany, String lastRecordAlbum) {
+<span class="fc" id="L26">    super(name, age, genres, awards);</span>
+<span class="fc" id="L27">    this.recordingCompany = recordingCompany;</span>
+<span class="fc" id="L28">    this.lastRecordAlbum = lastRecordAlbum;</span>
+<span class="fc" id="L29">  }</span>
+
+  /**
+   * Gets the name of recording company.
+   * @return the name of the recording company.
+   */
+  public String getRecordingCompany() {
+<span class="fc" id="L36">    return recordingCompany;</span>
+  }
+
+  /**
+   * Gets the last record album.
+   * @return the last record album.
+   */
+  public String getLastRecordAlbum() {
+<span class="fc" id="L44">    return lastRecordAlbum;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be checked.
+   * @return True if attributes of two objects are equal.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L55">      return true;</span>
+    }
+<span class="fc bfc" id="L57" title="All 2 branches covered.">    if (!(o instanceof Musician)) {</span>
+<span class="fc" id="L58">      return false;</span>
+    }
+<span class="fc" id="L60">    Musician musician = (Musician) o;</span>
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">    return Objects.equals(recordingCompany, musician.recordingCompany) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L62" title="2 of 4 branches missed.">        .equals(lastRecordAlbum, musician.lastRecordAlbum) &amp;&amp; super.equals(o);</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L71">    return Objects.hash(super.hashCode(), recordingCompany, lastRecordAlbum);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return string that the object presents.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L80">    return this.getClass() + &quot;,&quot; + super.toString() +</span>
+        &quot;recordingCompany='&quot; + recordingCompany + '\'' +
+        &quot;, lastRecordAlbum='&quot; + lastRecordAlbum;
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

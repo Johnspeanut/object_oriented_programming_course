@@ -1,0 +1,44 @@
+midtermExam/p1/ITax.java
+ midtermExam.p1.ITax
+midtermExam/p1/SelfEmployedFiler.java
+ midtermExam.p1.SelfEmployedFiler
+midtermExam/p1/TaxFile.java
+ midtermExam.p1.TaxFile
+midtermExam/p1/GroupFiler.java
+ midtermExam.p1.GroupFiler
+midtermExam/p1/ContactInfo.java
+ midtermExam.p1.ContactInfo
+midtermExam/p1/SmallBusinessTaxFiler.java
+ midtermExam.p1.SmallBusinessTaxFiler
+midtermExam/p1/MarriedSeparate.java
+ midtermExam.p1.MarriedSeparate
+midtermExam/p1/HeadOfHousehold.java
+ midtermExam.p1.HeadOfHousehold
+midtermExam/p1/IndividualFiler.java
+ midtermExam.p1.IndividualFiler
+midtermExam/p1/MarriedJoint.java
+ midtermExam.p1.MarriedJoint
+midtermExam/p1/Name.java
+ midtermExam.p1.Name
+midtermExam/p1/EmployeeFiler.java
+ midtermExam.p1.EmployeeFiler
+midtermExam/p2/ElementNode.java
+ midtermExam.p2.ElementNode
+midtermExam/p2/TaxReturnNotFoundException.java
+ midtermExam.p2.TaxReturnNotFoundException
+midtermExam/p2/Name.java
+ midtermExam.p2.Name
+midtermExam/p2/ITaxReturnSystem.java
+ midtermExam.p2.ITaxReturnSystem
+midtermExam/p2/ILinkedList.java
+ midtermExam.p2.ILinkedList
+midtermExam/p2/InvalidTaxIdentificationNumberException.java
+ midtermExam.p2.InvalidTaxIdentificationNumberException
+midtermExam/p2/TaxReturnSystem.java
+ midtermExam.p2.TaxReturnSystem
+midtermExam/p2/EmptyNode.java
+ midtermExam.p2.EmptyNode
+midtermExam/p2/ContactInfo.java
+ midtermExam.p2.ContactInfo
+midtermExam/p2/TaxReturn.java
+ midtermExam.p2.TaxReturn

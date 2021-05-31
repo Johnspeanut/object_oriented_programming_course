@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_1.MonthlyDonationTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-02-20T18:02:39" hostname="LAPTOP-UVF4RGU1" time="0.007">
+  <properties/>
+  <testcase name="getCancelledDate" classname="problem_1.MonthlyDonationTest" time="0.002"/>
+  <testcase name="testToString" classname="problem_1.MonthlyDonationTest" time="0.002"/>
+  <testcase name="calDonation" classname="problem_1.MonthlyDonationTest" time="0.001"/>
+  <testcase name="testHashCode" classname="problem_1.MonthlyDonationTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem_1.MonthlyDonationTest" time="0.0"/>
+  <testcase name="cancelledDonation" classname="problem_1.MonthlyDonationTest" time="0.0"/>
+  <testcase name="isCancelled" classname="problem_1.MonthlyDonationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

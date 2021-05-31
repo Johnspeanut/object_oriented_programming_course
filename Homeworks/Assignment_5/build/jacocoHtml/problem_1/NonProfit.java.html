@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NonProfit.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_5</a> &gt; <a href="index.source.html" class="el_package">problem_1</a> &gt; <span class="el_source">NonProfit.java</span></div><h1>NonProfit.java</h1><pre class="source lang-java linenums">package problem_1;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Objects;
+
+/**
+ * A concrete class representing a non profit.
+ */
+public class NonProfit {
+  private String organizationName;
+<span class="fc" id="L12">  private ArrayList&lt;Donation&gt; donationCollection = new ArrayList&lt;Donation&gt;();</span>
+
+  /**
+   * Constructor for nonprofit class object.
+   * @param organizationName Name of the non-profit organization.
+   */
+<span class="fc" id="L18">  public NonProfit(String organizationName) {</span>
+<span class="fc" id="L19">    this.organizationName = organizationName;</span>
+<span class="fc" id="L20">  }</span>
+
+  /**
+   * Gets the name of the Nonprofit organization.
+   * @return name of the nonprofit organization.
+   */
+  public String getOrganizationName() {
+<span class="fc" id="L27">    return organizationName;</span>
+  }
+
+  /**
+   *Gets the donation collection of the nonprofit.
+   * @return the donation collection of the nonprofit.
+   */
+  public ArrayList&lt;Donation&gt; getDonationCollection() {
+<span class="fc" id="L35">    return donationCollection;</span>
+  }
+
+  /**
+   * Receives a donation. The added object needs to be Donation class.
+   * Could be any subtype of Donation class but cast to Donation class.
+   * @param donation The donation to be received.
+   */
+  public void receiveDonation(Donation donation){
+<span class="fc" id="L44">    donationCollection.add(donation);</span>
+<span class="fc" id="L45">  }</span>
+
+  /**
+   * Checks if a donation is in the collection.
+   * @param donation A donation to be checked.
+   * @return True if the donation is in the collection of the non profit.
+   */
+  public boolean donationContain(Donation donation){
+<span class="fc" id="L53">     return this.donationCollection.contains(donation);</span>
+  }
+
+  /**
+   * Search method that helps users to search a donation in the collection of non profit.
+   * Overload method.
+   *  @param donation A donation to be searched.
+   * @return A list of donation that meets the requirement.
+   */
+  public ArrayList&lt;Donation&gt; searchDonation(Donation donation){
+<span class="fc" id="L63">    ArrayList&lt;Donation&gt; newDonationList = new ArrayList&lt;Donation&gt;();</span>
+<span class="pc bpc" id="L64" title="1 of 2 branches missed.">    if(this.donationContain(donation)){</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">      for(Donation element:this.donationCollection){</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(element.equals(donation)){</span>
+<span class="fc" id="L67">          newDonationList.add(element);</span>
+        }
+<span class="fc" id="L69">      }</span>
+<span class="fc" id="L70">      return newDonationList;</span>
+    }
+<span class="nc" id="L72">    return null;</span>
+  }
+
+  /**
+   * Search method that helps users to search a donation with a specific date in the collection of non profit.
+   * Overload method.
+   * @param date A date that the donation processed.
+   * @return A list of donation that meets the requirement.
+   */
+  public ArrayList&lt;Donation&gt; searchDonation(LocalDateTime date){
+<span class="fc" id="L82">    ArrayList&lt;Donation&gt; newDonationList = new ArrayList&lt;Donation&gt;();</span>
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    for(Donation element:this.donationCollection){</span>
+<span class="pc bpc" id="L84" title="1 of 2 branches missed.">      if(element.date.equals(date)){</span>
+<span class="fc" id="L85">        newDonationList.add(element);</span>
+      }
+<span class="fc" id="L87">    }</span>
+<span class="fc" id="L88">    return newDonationList;</span>
+  }
+
+  /**
+   * Search method that helps users to search a donation with a specific amount in the collection of non profit.
+   * Overload method.
+   * @param amount the amount that the donation processed.
+   * @return A list of donation that meets the requirement.
+   */
+  public ArrayList&lt;Donation&gt; searchDonation(float amount){
+<span class="fc" id="L98">    ArrayList&lt;Donation&gt; newDonationList = new ArrayList&lt;Donation&gt;();</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">    for(Donation element:this.donationCollection){</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">      if(element.amount == amount){</span>
+<span class="fc" id="L101">        newDonationList.add(element);</span>
+      }
+<span class="fc" id="L103">    }</span>
+<span class="fc" id="L104">    return newDonationList;</span>
+  }
+
+  /**
+   * Calculate total donation amount of the year.
+   * Polymorphism plays role here.
+   * @param year The year within which the donation amount is.
+   * @return The total amount of donation in that year.
+   */
+  public float getTotalDonationsForYear(int year){
+<span class="fc" id="L114">    float sum = 0;</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">    for(Donation element:this.donationCollection){</span>
+<span class="fc" id="L116">      sum += element.calDonation(year);</span>
+<span class="fc" id="L117">    }</span>
+<span class="fc" id="L118">    return sum;</span>
+  }
+
+  /**
+   * Override equals method.
+   * @param o Object to be compared.
+   * @return true if attributes are equals.
+   */
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L129">      return true;</span>
+    }
+<span class="fc bfc" id="L131" title="All 2 branches covered.">    if (!(o instanceof NonProfit)) {</span>
+<span class="fc" id="L132">      return false;</span>
+    }
+<span class="fc" id="L134">    NonProfit nonProfit = (NonProfit) o;</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">    return Objects.equals(organizationName, nonProfit.organizationName) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        .equals(donationCollection, nonProfit.donationCollection);</span>
+  }
+
+  /**
+   * Override hashcode method.
+   * @return true if hashcode are equals.
+   */
+  @Override
+  public int hashCode() {
+<span class="fc" id="L145">    return Objects.hash(organizationName, donationCollection);</span>
+  }
+
+  /**
+   * Override toString method.
+   * @return true if Strings are equal.
+   */
+  @Override
+  public String toString() {
+<span class="fc" id="L154">    return &quot;NonProfit{&quot; +</span>
+        &quot;organizationName='&quot; + organizationName + '\'' +
+        &quot;, donationCollection=&quot; + donationCollection +
+        '}';
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

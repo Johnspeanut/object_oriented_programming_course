@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Painting.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Assignment_3</a> &gt; <a href="index.source.html" class="el_package">problem1</a> &gt; <span class="el_source">Painting.java</span></div><h1>Painting.java</h1><pre class="source lang-java linenums">package problem1;
+
+import java.util.Objects;
+
+public class Painting extends InteriorService{
+  private int hours;
+  private double price;
+
+  public Painting(String address, enumOfSize size, boolean serviceMonthly,
+      int numPreviousServices, int numOfPets) {
+<span class="fc" id="L11">    super(address, size, serviceMonthly, numPreviousServices, numOfPets);</span>
+<span class="fc" id="L12">  }</span>
+
+  public int getHours() {
+<span class="fc" id="L15">    this.calculateHours();</span>
+<span class="fc" id="L16">    return hours;</span>
+  }
+
+  public double getPrice() {
+<span class="fc" id="L20">    this.calculatePrice();</span>
+<span class="fc" id="L21">    return price;</span>
+  }
+
+  @Override
+  public void calculateHours() {
+<span class="pc bpc" id="L26" title="1 of 3 branches missed.">    switch (getSize()){</span>
+      case SMALL:
+      case MEDIUM:
+<span class="fc" id="L29">        this.hours = 16;</span>
+<span class="fc" id="L30">        break;</span>
+      case LARGE:
+<span class="fc" id="L32">        this.hours = 24;</span>
+<span class="fc" id="L33">        break;</span>
+      default:
+<span class="nc" id="L35">        this.hours = 0;</span>
+    }
+<span class="fc" id="L37">  }</span>
+
+  @Override
+  public void calculatePrice() {
+<span class="fc" id="L41">    getExtraInteriorFee();</span>
+<span class="fc" id="L42">    this.getHours();</span>
+<span class="fc" id="L43">    this.price = (this.hours * getBASERATE()) * (1 + getExtraInteriorFee()) * (1 - getDiscountPercent());</span>
+
+<span class="fc" id="L45">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L50">      return true;</span>
+    }
+<span class="pc bpc" id="L52" title="2 of 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L53">      return false;</span>
+    }
+<span class="fc bfc" id="L55" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L56">      return false;</span>
+    }
+<span class="fc" id="L58">    Painting painting = (Painting) o;</span>
+<span class="pc bpc" id="L59" title="2 of 4 branches missed.">    return hours == painting.hours &amp;&amp; Double.compare(painting.price, price) == 0;</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L64">    return Objects.hash(super.hashCode(), hours, price);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L69">    return &quot;Painting{&quot; +</span>
+        &quot;hours=&quot; + hours +
+<span class="fc" id="L71">        &quot;, price=&quot; + price + super.toString() +</span>
+        '}';
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

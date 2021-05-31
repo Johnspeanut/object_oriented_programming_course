@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SelfEmployedFiler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Midterm</a> &gt; <a href="index.source.html" class="el_package">midtermExam.p1</a> &gt; <span class="el_source">SelfEmployedFiler.java</span></div><h1>SelfEmployedFiler.java</h1><pre class="source lang-java linenums">package midtermExam.p1;
+
+import java.util.Objects;
+
+/**
+ * A concrete class representing self-employer tax filer.
+ */
+public class SelfEmployedFiler extends IndividualFiler{
+  private Double homeOfficeExpenses;
+  private Double healthInsuranceExpenses;
+  private Double TravelExpenses;
+  private Double businessExpenses;
+
+  public SelfEmployedFiler(String taxID, ContactInfo contactInfo, Double lastYearEarnings,
+      Double totalIncomeTaxPaid, Double mortgageInterestPaid, Double studentLoadPaid,
+      Double contributionRetirement, Double contributionHealth, Double charitableDonation,
+      Double homeOfficeExpenses, Double healthInsuranceExpenses, Double travelExpenses,
+      Double businessExpenses) {
+<span class="fc" id="L19">    super(taxID, contactInfo, lastYearEarnings, totalIncomeTaxPaid, mortgageInterestPaid,</span>
+        studentLoadPaid, contributionRetirement, contributionHealth, charitableDonation);
+<span class="fc" id="L21">    this.homeOfficeExpenses = homeOfficeExpenses;</span>
+<span class="fc" id="L22">    this.healthInsuranceExpenses = healthInsuranceExpenses;</span>
+<span class="fc" id="L23">    TravelExpenses = travelExpenses;</span>
+<span class="fc" id="L24">    this.businessExpenses = businessExpenses;</span>
+<span class="fc" id="L25">  }</span>
+
+  public Double getHomeOfficeExpenses() {
+<span class="fc" id="L28">    return homeOfficeExpenses;</span>
+  }
+
+  public Double getHealthInsuranceExpenses() {
+<span class="fc" id="L32">    return healthInsuranceExpenses;</span>
+  }
+
+  public Double getTravelExpenses() {
+<span class="fc" id="L36">    return TravelExpenses;</span>
+  }
+
+  public Double getBusinessExpenses() {
+<span class="fc" id="L40">    return businessExpenses;</span>
+  }
+
+  @Override
+  public boolean equals(Object o) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    if (this == o) {</span>
+<span class="fc" id="L46">      return true;</span>
+    }
+<span class="fc bfc" id="L48" title="All 2 branches covered.">    if (!(o instanceof SelfEmployedFiler)) {</span>
+<span class="fc" id="L49">      return false;</span>
+    }
+<span class="fc bfc" id="L51" title="All 2 branches covered.">    if (!super.equals(o)) {</span>
+<span class="fc" id="L52">      return false;</span>
+    }
+<span class="fc" id="L54">    SelfEmployedFiler that = (SelfEmployedFiler) o;</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">    return Objects.equals(homeOfficeExpenses, that.homeOfficeExpenses) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        .equals(healthInsuranceExpenses, that.healthInsuranceExpenses) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        .equals(TravelExpenses, that.TravelExpenses) &amp;&amp; Objects</span>
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        .equals(businessExpenses, that.businessExpenses);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="fc" id="L63">    return Objects</span>
+<span class="fc" id="L64">        .hash(super.hashCode(), homeOfficeExpenses, healthInsuranceExpenses, TravelExpenses,</span>
+            businessExpenses);
+  }
+
+  @Override
+  public String toString() {
+<span class="fc" id="L70">    return &quot;selfEmployedFiler{&quot; +</span>
+        &quot;taxID='&quot; + taxID + '\'' +
+        &quot;, contactInfo=&quot; + contactInfo +
+        &quot;, lastYearEarnings=&quot; + lastYearEarnings +
+        &quot;, totalIncomeTaxPaid=&quot; + totalIncomeTaxPaid +
+        &quot;, mortgageInterestPaid=&quot; + mortgageInterestPaid +
+        &quot;, studentLoadPaid=&quot; + studentLoadPaid +
+        &quot;, contributionRetirement=&quot; + contributionRetirement +
+        &quot;, contributionHealth=&quot; + contributionHealth +
+        &quot;, charitableDonation=&quot; + charitableDonation +
+        &quot;, homeOfficeExpenses=&quot; + homeOfficeExpenses +
+        &quot;, healthInsuranceExpenses=&quot; + healthInsuranceExpenses +
+        &quot;, TravelExpenses=&quot; + TravelExpenses +
+        &quot;, businessExpenses=&quot; + businessExpenses +
+        '}';
+  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

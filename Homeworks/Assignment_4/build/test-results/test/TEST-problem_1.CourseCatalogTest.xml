@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="problem_1.CourseCatalogTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-02-15T06:59:47" hostname="LAPTOP-UVF4RGU1" time="0.01">
+  <properties/>
+  <testcase name="append" classname="problem_1.CourseCatalogTest" time="0.003"/>
+  <testcase name="testToString" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="remove" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="contains" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="createEmpty" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="get" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="count" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="testHashCode" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="testEquals" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="getException" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <testcase name="indexOf" classname="problem_1.CourseCatalogTest" time="0.001"/>
+  <testcase name="isEmpty" classname="problem_1.CourseCatalogTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
